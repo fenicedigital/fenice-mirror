@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/fenice-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/fenice-favicon-64.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/fenice-favicon-128.png">
+
+  <title class="it">Fenice — La tua azienda, gestita da agenti intelligenti</title>
+  <title class="en" style="display:none">Fenice — Your company, run by intelligent agents</title>
+
+  <meta name="description" content="Fenice è una digital agency AI. Automatizziamo e potenziamo il tuo business con agenti intelligenti operativi h24: automazione flussi, content, lead generation, email marketing, analytics e molto altro.">
+  <meta name="keywords" content="digital agency AI, automazione aziendale, agenti AI, intelligenza artificiale, lead generation, content marketing, email marketing, analytics, Italia">
+  <meta name="author" content="Anduel Guri — Fenice">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fenice.digital/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fenice — La tua azienda, gestita da agenti intelligenti">
+  <meta property="og:description" content="Una digital agency AI che lavora per te h24. Automazione, content, lead generation e analytics su misura.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fenice.digital/">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:site_name" content="Fenice">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fenice — La tua azienda, gestita da agenti intelligenti">
+  <meta name="twitter:description" content="Una digital agency AI che lavora per te h24.">
+
+  <!-- JSON-LD: Organization (LLM SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fenice",
+    "alternateName": "Fenice Digital Agency",
+    "description": "Fenice è una digital agency AI fondata da Anduel Guri. Specializzata in automazione aziendale tramite agenti di intelligenza artificiale, offre servizi di content marketing, lead generation, email marketing e analytics per aziende italiane e internazionali.",
+    "url": "https://fenice.digital",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Anduel Guri",
+      "jobTitle": "CEO & Founder",
+      "url": "https://anduelguri.com"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@fenice.digital",
+      "contactType": "customer service",
+      "availableLanguage": ["Italian", "English"]
+    },
+    "sameAs": ["https://anduelguri.com"],
+    "knowsAbout": ["Intelligenza Artificiale", "Automazione Aziendale", "Content Marketing", "Lead Generation", "Email Marketing", "Analytics", "Digital Marketing"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi e Pacchetti Fenice",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automazione & Agenti AI", "description": "Automatizziamo i processi ripetitivi della tua azienda con agenti AI su misura, operativi h24"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Content & Social Media", "description": "Piano editoriale, creazione contenuti e pubblicazione gestiti da agenti AI specializzati"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lead Generation & Sales", "description": "Prospezione automatizzata, gestione del funnel e follow-up. I tuoi agenti trovano e accompagnano i clienti giusti"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Email Marketing", "description": "Campagne email personalizzate, sequenze di onboarding e newsletter automatizzate"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Analytics & Dashboard", "description": "KPI in tempo reale, dashboard cliente dedicate e report periodici"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Assistenza & Risposta AI h24", "description": "Aria risponde ai tuoi clienti h24 su chat web e WhatsApp, qualifica i lead e li passa al team commerciale"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pacchetto Essenziale", "description": "Content, Email Marketing e Analytics — presenza digitale automatizzata per chi inizia"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pacchetto Crescita", "description": "Essenziale + Assistenza AI h24 — per aziende pronte a scalare con risposta clienti automatizzata"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pacchetto Premium", "description": "Tutti i servizi inclusi, Lead Generation & CRM, tutti e 14 gli agenti attivi"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pacchetto Enterprise", "description": "Sistema completamente su misura con automazione custom, integrazioni dedicate e supporto prioritario"}}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --bg-alt: #f2efe9;
+      --navy: #0c4a6e;
+      --navy-light: #1e6a8e;
+      --navy-dark: #083555;
+      --cream: #faf8f4;
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --border: #e0dbd3;
+      --gold: #b8956a;
+      --white: #ffffff;
+      --font-serif: Georgia, 'Times New Roman', 'Palatino Linotype', serif;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --radius: 4px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 3px rgba(12,74,110,0.08);
+      --shadow: 0 4px 20px rgba(12,74,110,0.10);
+      --shadow-lg: 0 12px 40px rgba(12,74,110,0.14);
+      --max-w: 1200px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── Typography ────────────────────────────────── */
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: normal;
+      line-height: 1.2;
+    }
+    h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--navy); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+
+    p { max-width: 68ch; }
+
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { color: var(--navy-light); }
+
+    /* ─── Layout ────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+    section:nth-child(even) { background: var(--bg-alt); }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-header {
+      margin-bottom: 64px;
+    }
+    .section-header p {
+      margin-top: 16px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* ─── Header & Navigation ───────────────────────── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: var(--shadow); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+    .logo-divider { width: 1px; height: 26px; background: var(--border); flex-shrink: 0; }
+    .logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .logo-name {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: normal;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-family: var(--font-sans);
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .footer-brand .logo .logo-name { color: var(--white); }
+    .footer-brand .logo .logo-divider { background: rgba(255,255,255,0.2); }
+
+    nav { display: flex; align-items: center; gap: 8px; }
+
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--navy); background: rgba(12,74,110,0.06); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--navy-light);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* Login / Esci — ultima voce nav */
+    a.nav-auth {
+      font-weight: 600;
+      color: var(--navy) !important;
+      border: 1.5px solid var(--navy);
+      border-radius: 20px;
+      padding: 6px 18px !important;
+      margin-left: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+    a.nav-auth:hover { background: var(--navy) !important; color: var(--white) !important; }
+    a.nav-auth.esci { border-color: var(--red, #dc2626); color: var(--red, #dc2626) !important; }
+    a.nav-auth.esci:hover { background: var(--red, #dc2626) !important; color: #fff !important; }
+    @media (max-width: 768px) {
+      nav .nav-links > a.nav-auth {
+        border: none !important; border-radius: 0 !important;
+        padding: 18px 24px !important; margin-left: 0;
+        border-top: 2px solid var(--navy) !important;
+        color: var(--navy) !important; font-size: 1.05rem;
+      }
+      nav .nav-links > a.nav-auth.esci {
+        border-top-color: var(--red, #dc2626) !important;
+        color: var(--red, #dc2626) !important;
+      }
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ─── Hero ──────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      will-change: transform;
+      transform: translateZ(0);
+      display: block;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-content h1 {
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--navy-light);
+    }
+
+    .hero-content .lead {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 44px;
+      max-width: 56ch;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── About / Pillars ───────────────────────────── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 64px;
+    }
+    .pillar {
+      padding: 40px 32px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .pillar:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      color: var(--navy);
+    }
+    .pillar h3 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .pillar p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* ─── Services ──────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      padding: 36px 28px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--navy-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+    }
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+    .service-card h3 {
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── Team / Agents — Hierarchy ─────────────────── */
+    .team-hierarchy { display: flex; flex-direction: column; align-items: center; }
+
+    .team-layer { width: 100%; }
+
+    .team-layer-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 36px 0 20px;
+    }
+    .team-layer-header::before,
+    .team-layer-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .team-layer-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .team-connector {
+      width: 2px;
+      height: 32px;
+      background: var(--border);
+      margin: 0 auto;
+      position: relative;
+    }
+    .team-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: -4px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--border);
+    }
+    .team-layer-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .agent-card {
+      flex: 0 1 220px;
+      padding: 28px 20px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    /* SaS — gold accent */
+    .agent-card.layer-sas {
+      border-color: rgba(184,149,106,0.5);
+      background: rgba(184,149,106,0.04);
+      flex-basis: 260px;
+    }
+    .agent-card.layer-sas .agent-avatar {
+      background: linear-gradient(135deg, #9c7a4a, #b8956a);
+    }
+    /* Noku — navy accent */
+    .agent-card.layer-cos {
+      border-color: rgba(12,74,110,0.3);
+      background: rgba(12,74,110,0.03);
+      flex-basis: 260px;
+    }
+    .agent-card:hover {
+      box-shadow: var(--shadow);
+      border-color: rgba(12,74,110,0.2);
+      transform: translateY(-3px);
+    }
+    .agent-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    .agent-card h3 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .agent-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .agent-desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-top: 10px;
+      font-style: italic;
+      font-family: var(--font-serif);
+    }
+
+    /* ─── Process ───────────────────────────────────── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      margin-top: 64px;
+    }
+    .process-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.25s ease;
+      cursor: default;
+    }
+    .process-step.step-active .step-num {
+      color: #b8956a;
+      font-weight: bold;
+    }
+    .process-step h3 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: none;
+    }
+
+    /* ─── Clients ───────────────────────────────────── */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .client-card {
+      padding: 36px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .client-card:hover { box-shadow: var(--shadow); }
+    .client-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      border: 1px solid rgba(184,149,106,0.3);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .client-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+    .client-card p { font-size: 0.88rem; color: var(--text-muted); }
+    .client-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .client-link:hover { color: var(--navy-light); }
+    .client-link svg { flex-shrink: 0; }
+
+    /* ─── Contact ───────────────────────────────────── */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 16px; }
+    .contact-info p { color: var(--text-muted); margin-bottom: 32px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .contact-item svg { color: var(--navy); flex-shrink: 0; }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 48px;
+      box-shadow: var(--shadow);
+    }
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(12,74,110,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      opacity: 0.32;
+      color: var(--text-muted);
+    }
+
+    .gdpr-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .gdpr-row input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      accent-color: var(--navy);
+      cursor: pointer;
+    }
+    .gdpr-row a { color: var(--navy); text-decoration: underline; }
+
+    .form-error {
+      display: none;
+      color: #c0392b;
+      font-size: 0.82rem;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #fdf0ef;
+      border-radius: var(--radius);
+      border-left: 3px solid #c0392b;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: var(--navy);
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+    }
+    .form-fallback {
+      display: none;
+      padding: 20px;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* ─── Footer ────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .footer-email {
+      display: inline-block;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-brand .footer-email:hover { color: var(--white); }
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 16px;
+      display: inline-flex;
+    }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.65; max-width: 32ch; }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ─── Cookie Banner ─────────────────────────────── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.visible { transform: translateY(0); }
+    #cookie-banner p { font-size: 0.88rem; max-width: 70ch; opacity: 0.85; }
+    #cookie-banner p a { color: rgba(255,255,255,0.7); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .cookie-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .cookie-accept { background: var(--white); color: var(--navy); }
+    .cookie-accept:hover { background: var(--bg-alt); }
+    .cookie-decline { background: transparent; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.3); }
+    .cookie-decline:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+    /* ─── Lang helpers ──────────────────────────────── */
+    [lang-it], .it-only { display: block; }
+    [lang-en], .en-only { display: none; }
+    body.lang-en [lang-it], body.lang-en .it-only { display: none; }
+    body.lang-en [lang-en], body.lang-en .en-only { display: block; }
+    body.lang-en span[lang-it] { display: none; }
+    body.lang-en span[lang-en] { display: inline; }
+    span[lang-en] { display: none; }
+    span[lang-it] { display: inline; }
+
+    /* ─── Animations ────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Mobile extras (hidden on desktop, shown in mobile dropdown) ── */
+    .mobile-extras { display: none; }
+
+    /* ─── Back to Top Button ────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      opacity: 0;
+      transform: scale(0.7) translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, background 0.2s;
+      padding: 0;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    #back-to-top:hover { background: var(--bg-alt); }
+    .btt-ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .btt-ring-bg {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 2.5;
+    }
+    .btt-ring-fill {
+      fill: none;
+      stroke: var(--navy);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 138.23;
+      stroke-dashoffset: 138.23;
+      transition: stroke-dashoffset 0.08s linear;
+    }
+    .btt-arrow-svg {
+      position: relative;
+      z-index: 1;
+      width: 18px;
+      height: 18px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    /* ─── Responsive ────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .agent-card { flex-basis: 200px; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 48px; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-step.step-active .step-num { transform: none; box-shadow: none; color: var(--white); font-weight: 700; }
+    }
+
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      section { padding: 72px 0; }
+
+      /* Mobile: static background, no canvas animation */
+      #hero-canvas { display: none; }
+
+      /* Header: hide desktop nav elements */
+      nav > .lang-toggle { display: none; }
+      .header-cta { display: none !important; }
+      .hamburger { display: flex !important; align-items: center; justify-content: center; }
+
+      /* Mobile menu: dropdown that slides down (NOT fullscreen overlay) */
+      nav .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+        background: var(--bg);
+        z-index: 200;
+        border-top: 0px solid var(--border);
+      }
+
+      nav .nav-links.open {
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 12px 48px rgba(12,74,110,0.2);
+        border-top-width: 2px;
+      }
+
+      /* Links inside dropdown */
+      nav .nav-links > a {
+        display: flex;
+        align-items: center;
+        font-size: 1.05rem;
+        font-weight: 500;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        background: transparent;
+        transition: background 0.15s;
+      }
+      nav .nav-links > a:active { background: rgba(12,74,110,0.05); }
+
+      /* Mobile extras: visible inside dropdown */
+      .mobile-extras {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+        background: var(--bg-alt);
+      }
+      .mobile-extras .lang-toggle {
+        display: inline-flex !important;
+        align-self: flex-start;
+      }
+      .mobile-extras .btn-primary {
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        padding: 15px 22px;
+        font-size: 1rem;
+      }
+
+      .pillars-grid { grid-template-columns: 1fr; gap: 20px; }
+      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      .agent-card { flex-basis: 44%; }
+      .agent-card.layer-sas, .agent-card.layer-cos { flex-basis: 280px; }
+      .process-steps { grid-template-columns: 1fr; gap: 28px; }
+      .clients-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .contact-form { padding: 28px 20px; }
+      .hero-stats { gap: 32px; flex-wrap: wrap; }
+      #cookie-banner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 375px) {
+      .agent-card { flex-basis: 100%; }
+    }
+  </style>
+<script src="/hq/auth.js"></script>
+</head>
+<body>
+
+<!-- ─── Back to Top Button ───────────────────────────── -->
+<button id="back-to-top" onclick="scrollToTop()" aria-label="Torna in cima">
+  <svg class="btt-ring-svg" viewBox="0 0 52 52">
+    <circle class="btt-ring-bg" cx="26" cy="26" r="22"/>
+    <circle class="btt-ring-fill" cx="26" cy="26" r="22" id="btt-ring-fill"/>
+  </svg>
+  <svg class="btt-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- ─── Cookie Banner ─────────────────────────────────── -->
+<div id="cookie-banner" role="alert" aria-live="polite">
+  <p>
+    <span lang-it>Utilizziamo cookie tecnici per il corretto funzionamento del sito. Per maggiori informazioni consulta la nostra <a href="/privacy">Privacy Policy</a>.</span>
+    <span lang-en>We use technical cookies to ensure the site works properly. For more information, see our <a href="/privacy">Privacy Policy</a>.</span>
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-decline" onclick="cookieDecline()">
+      <span lang-it>Solo necessari</span><span lang-en>Necessary only</span>
+    </button>
+    <button class="cookie-btn cookie-accept" onclick="cookieAccept()">
+      <span lang-it>Accetta</span><span lang-en>Accept</span>
+    </button>
+  </div>
+</div>
+
+<!-- ─── Header ───────────────────────────────────────── -->
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <img src="fenice-logo.png" alt="Fenice" class="logo-img">
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <span class="logo-name">Fenice</span>
+        <span class="logo-sub">Digital Agency</span>
+      </div>
+    </a>
+
+    <nav>
+      <div class="nav-links" id="nav-links">
+        <a href="#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <a href="#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
+        <a href="#team">Team</a>
+        <a href="#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
+        <a href="#clienti">Clienti</a>
+        <a href="#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
+        <a href="/hq/login" id="nav-auth-link" class="nav-auth">Login</a>
+        <!-- Mobile-only: lang toggle + CTA, shown in menu overlay -->
+        <div class="mobile-extras">
+          <button class="lang-toggle" onclick="toggleLang()" aria-label="Cambia lingua">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-label">EN</span>
+          </button>
+          <a href="#contatti" class="btn btn-primary" onclick="closeMenu()">
+            <span lang-it>Parla con noi</span><span lang-en>Let's talk</span>
+          </a>
+        </div>
+      </div>
+      <button class="lang-toggle" id="lang-btn" onclick="toggleLang()" aria-label="Cambia lingua">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-label">EN</span>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="hamburger-icon-bars"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="hamburger-icon-x" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a href="#contatti" class="btn btn-primary header-cta" style="margin-left:8px">
+        <span lang-it>Parla con noi</span><span lang-en>Let's talk</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─── Hero ─────────────────────────────────────────── -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="container">
+    <div class="hero-content fade-up">
+      <span class="hero-eyebrow">
+        <span lang-it>Digital Agency AI</span>
+        <span lang-en>AI Digital Agency</span>
+      </span>
+      <h1>
+        <span lang-it>La tua azienda,<br>gestita da agenti<br><em>intelligenti.</em></span>
+        <span lang-en>Your company,<br>run by intelligent<br><em>agents.</em></span>
+      </h1>
+      <p class="lead">
+        <span lang-it>Costruiamo e gestiamo agenti AI su misura per la tua azienda. Automazione, contenuti, lead generation e analytics — operativi h24, senza fermarsi mai.</span>
+        <span lang-en>We build and manage custom AI agents for your business. Automation, content, lead generation and analytics — running h24, never stopping.</span>
+      </p>
+      <div class="hero-actions">
+        <a href="#servizi" class="btn btn-primary">
+          <span lang-it>Scopri i servizi</span><span lang-en>Explore services</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contatti" class="btn btn-outline">
+          <span lang-it>Lavora con noi</span><span lang-en>Work with us</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num">14</span>
+          <span class="hero-stat-label">
+            <span lang-it>Agenti specializzati</span>
+            <span lang-en>Specialized agents</span>
+          </span>
+        </div>
+        <div>
+          <span class="hero-stat-num">h24</span>
+          <span class="hero-stat-label">
+            <span lang-it>Operativi</span>
+            <span lang-en>Always on</span>
+          </span>
+        </div>
+        <div>
+          <span class="hero-stat-num">6</span>
+          <span class="hero-stat-label">
+            <span lang-it>Aree di servizio</span>
+            <span lang-en>Service areas</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ─────────────────────────────────────────── -->
+<section id="chi-siamo">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label"><span lang-it>Chi siamo</span><span lang-en>About</span></span>
+      <h2>
+        <span lang-it>Un team AI progettato per <em style="font-style:italic">fare</em>, non solo per pianificare.</span>
+        <span lang-en>An AI team built to <em style="font-style:italic">do</em>, not just to plan.</span>
+      </h2>
+      <p>
+        <span lang-it>Fenice nasce dall'idea di <a href="https://www.anduelguri.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">Anduel Guri</a> — CEO e fondatore — che ha costruito attorno a sé un team di specialisti AI, strateghi e creativi. Non vendiamo consulenza: costruiamo sistemi che lavorano per te ogni giorno, con risultati misurabili fin dal primo mese.</span>
+        <span lang-en>Fenice was born from the idea of <a href="https://www.anduelguri.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">Anduel Guri</a> — CEO and founder — who built around himself a team of AI specialists, strategists and creatives. We don't sell consulting: we build systems that work for you every day, with measurable results from the first month.</span>
+      </p>
+      <p style="margin-top:16px">
+        <span lang-it>Ogni cliente lavora con un team dedicato: agenti AI autonomi coordinati da Anduel e dai lead di ogni area. Un'agenzia che non si ferma mai — strategie umane, esecuzione automatizzata, supervisione costante.</span>
+        <span lang-en>Every client works with a dedicated team: autonomous AI agents coordinated by Anduel and the lead of each area. An agency that never stops — human strategy, automated execution, constant oversight.</span>
+      </p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar fade-up">
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="18"/>
+          <path d="M24 12v6M24 30v6M12 24h6M30 24h6"/>
+          <circle cx="24" cy="24" r="5"/>
+        </svg>
+        <h3><span lang-it>Intelligenza su misura</span><span lang-en>Tailored intelligence</span></h3>
+        <p><span lang-it>Ogni agente è progettato attorno alle esigenze specifiche del tuo business. Scegli il piano con AI inclusa, o porta la tua — i sistemi si adattano, non il contrario.</span><span lang-en>Every agent is designed around your business's specific needs. Choose the plan with AI included, or bring your own — the systems adapt, not the other way around.</span></p>
+      </div>
+      <div class="pillar fade-up">
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="8" width="32" height="32" rx="4"/>
+          <path d="M8 20h32M20 20v20"/>
+          <circle cx="14" cy="14" r="2" fill="currentColor"/>
+          <circle cx="22" cy="14" r="2" fill="currentColor"/>
+        </svg>
+        <h3><span lang-it>Operativi h24</span><span lang-en>Always on</span></h3>
+        <p><span lang-it>I tuoi agenti non si fermano. Lavorano durante la notte, nei weekend, nei giorni festivi — senza interruzioni e senza costi aggiuntivi.</span><span lang-en>Your agents never stop. They work through the night, on weekends, on holidays — without interruption and without extra cost.</span></p>
+      </div>
+      <div class="pillar fade-up">
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 18h12z"/>
+        </svg>
+        <h3><span lang-it>Risultati misurabili</span><span lang-en>Measurable results</span></h3>
+        <p><span lang-it>Ogni progetto ha KPI chiari, dashboard dedicate e report regolari. Sai sempre cosa sta succedendo e qual è il ROI del tuo investimento.</span><span lang-en>Every project has clear KPIs, dedicated dashboards and regular reports. You always know what's happening and the ROI of your investment.</span></p>
+      </div>
+      <div class="pillar fade-up">
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 16h28M10 24h20M10 32h14"/>
+          <circle cx="38" cy="32" r="7"/>
+          <path d="M36 32h4M38 30v4"/>
+        </svg>
+        <h3><span lang-it>Il tuo spazio, il nostro lavoro</span><span lang-en>Your space, our work</span></h3>
+        <p><span lang-it>Accediamo a ciò che voi volete per dare il massimo di ciò che sappiamo fare. Lavoriamo nel tuo Google Drive — tutto ciò che creiamo è visibile, tuo, in tempo reale. Zero lock-in.</span><span lang-en>We access what you want to give the best of what we know. We work in your Google Drive — everything we create is visible, yours, in real time. Zero lock-in.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services ──────────────────────────────────────── -->
+<section id="servizi">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label"><span lang-it>Servizi</span><span lang-en>Services</span></span>
+      <h2><span lang-it>Cosa facciamo per te</span><span lang-en>What we do for you</span></h2>
+      <p><span lang-it>Un portfolio completo di servizi AI, gestiti da agenti specializzati e supervisionati da un team strategico dedicato.</span><span lang-en>A complete portfolio of AI services, managed by specialized agents and overseen by a dedicated strategic team.</span></p>
+      <p style="margin-top:12px"><span lang-it>Ogni servizio si integra con i tuoi processi esistenti — senza stravolgere nulla, solo ottimizzando. Scegli uno o più servizi: pensiamo a tutto noi, dalla configurazione alla gestione quotidiana.</span><span lang-en>Every service integrates with your existing processes — without disrupting anything, only optimising. Choose one or more services: we handle everything, from configuration to daily management.</span></p>
+    </div>
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="14" r="5"/>
+          <circle cx="8" cy="32" r="4"/>
+          <circle cx="36" cy="32" r="4"/>
+          <path d="M22 19v6M22 25l-10 3M22 25l10 3"/>
+          <circle cx="22" cy="22" r="2.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3><span lang-it>Automazione & Agenti AI</span><span lang-en>Automation & AI Agents</span></h3>
+        <p><span lang-it>Automatizziamo i processi ripetitivi della tua azienda con agenti AI su misura. Lavoriamo con il nostro Claude AI incluso, oppure integriamo l'AI che già usi — ogni agente ha un ruolo preciso nel tuo flusso, senza effort manuale.</span><span lang-en>We automate your company's repetitive processes with custom AI agents. We work with our included Claude AI, or we integrate the AI you already use — each agent has a precise role in your flow, with no manual effort.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Dalle notifiche automatiche alle pipeline di dati complesse: ogni flusso viene mappato, ottimizzato e monitorato h24.</span><span lang-en>From automated notifications to complex data pipelines: every flow is mapped, optimised and monitored 24/7.</span></p>
+      </div>
+      <!-- 2 -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="8" width="32" height="28" rx="3"/>
+          <path d="M13 16h18M13 22h12M13 28h8"/>
+          <circle cx="33" cy="28" r="4"/>
+          <path d="M36 31l3 3"/>
+        </svg>
+        <h3><span lang-it>Content & Social Media</span><span lang-en>Content & Social Media</span></h3>
+        <p><span lang-it>Piano editoriale, creazione contenuti e pubblicazione gestiti da intelligenza artificiale. Presenza costante sui tuoi canali, senza sforzo.</span><span lang-en>Editorial planning, content creation and publishing managed by AI. Consistent presence on your channels, effortlessly.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Testi, immagini, caption e scheduling: il team crea contenuti coerenti con la tua identità di brand, pubblicati nei momenti giusti per il tuo pubblico.</span><span lang-en>Texts, images, captions and scheduling: the team creates content consistent with your brand identity, published at the right moments for your audience.</span></p>
+      </div>
+      <!-- 4 -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 6C13.2 6 6 13.2 6 22s7.2 16 16 16 16-7.2 16-16"/>
+          <circle cx="22" cy="22" r="6"/>
+          <path d="M34 6l-8 8"/>
+          <path d="M38 6h-4v4"/>
+        </svg>
+        <h3><span lang-it>Lead Generation & Sales</span><span lang-en>Lead Generation & Sales</span></h3>
+        <p><span lang-it>Prospezione automatizzata, gestione del funnel e follow-up. I tuoi agenti trovano i clienti giusti e li accompagnano fino alla chiusura.</span><span lang-en>Automated prospecting, funnel management and follow-up. Your agents find the right clients and guide them to close.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Ogni lead viene qualificato, profilato e inserito in una sequenza personalizzata — il tuo CRM si aggiorna in automatico, senza lavoro manuale.</span><span lang-en>Every lead is qualified, profiled and entered into a personalised sequence — your CRM updates automatically, with no manual work.</span></p>
+      </div>
+      <!-- 5 -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="14" width="32" height="22" rx="3"/>
+          <path d="M14 14V10a8 8 0 0 1 16 0v4"/>
+          <circle cx="22" cy="25" r="3"/>
+          <path d="M22 28v3"/>
+        </svg>
+        <h3>Email Marketing</h3>
+        <p><span lang-it>Campagne email personalizzate, sequenze di onboarding e newsletter automatizzate. Comunicazione professionale che converte, senza effort manuale.</span><span lang-en>Personalised email campaigns, onboarding sequences and automated newsletters. Professional communication that converts, with no manual effort.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Ogni email è scritta sulla base del comportamento del destinatario: il messaggio giusto, al momento giusto, alla persona giusta.</span><span lang-en>Every email is written based on the recipient's behaviour: the right message, at the right time, to the right person.</span></p>
+      </div>
+      <!-- 6 -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="6" width="32" height="32" rx="3"/>
+          <path d="M12 32l8-10 6 6 4-5 6 9"/>
+          <path d="M6 20h32"/>
+        </svg>
+        <h3><span lang-it>Analytics & Dashboard</span><span lang-en>Analytics & Dashboard</span></h3>
+        <p><span lang-it>KPI in tempo reale, dashboard cliente dedicate e report periodici. Dati chiari su ogni progetto, accessibili quando vuoi.</span><span lang-en>Real-time KPIs, dedicated client dashboards and periodic reports. Clear data on every project, accessible when you want.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Non dovrai mai chiedere come stanno andando le cose — la dashboard risponde prima che tu faccia la domanda. Aggiornamento automatico, h24.</span><span lang-en>You'll never have to ask how things are going — the dashboard answers before you even ask the question. Automatic update, 24/7.</span></p>
+      </div>
+      <!-- 7 — Aria -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M38 20c0 8.8-7.2 16-16 16a15.9 15.9 0 0 1-8-2.1L6 38l4.1-8A15.9 15.9 0 0 1 8 22c0-8.8 7.2-16 16-16s16 7.2 16 16-2 0 0 0z"/>
+          <circle cx="16" cy="22" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="22" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="28" cy="22" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3><span lang-it>Assistenza & Risposta AI h24</span><span lang-en>AI Response & Support h24</span></h3>
+        <p><span lang-it>Aria risponde ai tuoi clienti h24 su chat web e WhatsApp, con la tua voce e il tuo brand. Qualifica i lead in automatico e li passa al team commerciale — senza perdersi nessuna richiesta.</span><span lang-en>Aria responds to your clients 24/7 on web chat and WhatsApp, in your voice and brand. It qualifies leads automatically and hands them to your sales team — never missing a request.</span></p>
+        <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Aria conosce il tuo brand, i tuoi prodotti e il tuo tono di voce. Risponde come parte del tuo team — perché lo è, davvero.</span><span lang-en>Aria knows your brand, your products and your tone of voice. It responds as part of your team — because it truly is.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Pacchetti ──────────────────────────────────────── -->
+<section id="pacchetti">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label"><span lang-it>Pacchetti</span><span lang-en>Packages</span></span>
+      <h2><span lang-it>Scegli il piano giusto per te</span><span lang-en>Choose the right plan for you</span></h2>
+      <p><span lang-it>Quattro piani pensati per aziende in fasi diverse di crescita. Ogni pacchetto combina i servizi in modo ottimale — e si adatta con te nel tempo. I prezzi non sono pubblicati: ogni preventivo è costruito sul tuo caso specifico, senza sorprese.</span><span lang-en>Four plans designed for companies at different growth stages. Every package combines services optimally — and adapts with you over time. Prices are not published: every quote is built for your specific case, with no surprises.</span></p>
+    </div>
+    <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+      <!-- Essenziale -->
+      <div class="service-card fade-up">
+        <h3><span lang-it>Essenziale</span><span lang-en>Essential</span></h3>
+        <p style="font-size:0.82rem;color:var(--gold);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em"><span lang-it>Per chi inizia</span><span lang-en>For those starting out</span></p>
+        <ul style="list-style:none;font-size:0.9rem;color:var(--text-muted);line-height:2.1;margin-bottom:16px">
+          <li>✓ <span lang-it>Content & Social Media</span><span lang-en>Content & Social Media</span></li>
+          <li>✓ Email Marketing</li>
+          <li>✓ Analytics & Dashboard</li>
+        </ul>
+        <p style="font-size:0.88rem;color:var(--text-muted)"><span lang-it>Presenza digitale costante e misurata, gestita interamente dagli agenti Fenice. Ideale per PMI che vogliono attivare la propria comunicazione online in modo professionale e automatico.</span><span lang-en>Constant, measured digital presence, fully managed by Fenice agents. Ideal for SMEs that want to activate their online communication professionally and automatically.</span></p>
+      </div>
+
+      <!-- Crescita -->
+      <div class="service-card fade-up" style="border-color:rgba(12,74,110,0.25)">
+        <h3><span lang-it>Crescita</span><span lang-en>Growth</span></h3>
+        <p style="font-size:0.82rem;color:var(--gold);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em"><span lang-it>Per chi vuole scalare</span><span lang-en>For those ready to scale</span></p>
+        <ul style="list-style:none;font-size:0.9rem;color:var(--text-muted);line-height:2.1;margin-bottom:16px">
+          <li>✓ <span lang-it>Content & Social Media</span><span lang-en>Content & Social Media</span></li>
+          <li>✓ Email Marketing</li>
+          <li>✓ <span lang-it>Assistenza & Risposta AI h24</span><span lang-en>AI Response & Support h24</span></li>
+          <li>✓ Analytics & Dashboard</li>
+        </ul>
+        <p style="font-size:0.88rem;color:var(--text-muted)"><span lang-it>Aggiunge Aria: risposta ai tuoi clienti h24 su chat web e WhatsApp, qualificazione lead automatica e passaggio al team commerciale — con la tua voce e identità.</span><span lang-en>Adds Aria: 24/7 client response on web chat and WhatsApp, automatic lead qualification and handoff to your sales team — in your voice and identity.</span></p>
+      </div>
+
+      <!-- Premium -->
+      <div class="service-card fade-up">
+        <h3>Premium</h3>
+        <p style="font-size:0.82rem;color:var(--gold);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em"><span lang-it>La macchina completa</span><span lang-en>The full machine</span></p>
+        <ul style="list-style:none;font-size:0.9rem;color:var(--text-muted);line-height:2.1;margin-bottom:16px">
+          <li>✓ <span lang-it>Tutti i servizi Crescita</span><span lang-en>All Growth services</span></li>
+          <li>✓ <span lang-it>Lead Generation & CRM</span><span lang-en>Lead Generation & CRM</span></li>
+          <li>✓ <span lang-it>Automazione flussi di lavoro</span><span lang-en>Workflow Automation</span></li>
+          <li>✓ <span lang-it>Tutti e 14 gli agenti attivi</span><span lang-en>All 14 agents active</span></li>
+        </ul>
+        <p style="font-size:0.88rem;color:var(--text-muted)"><span lang-it>Acquisizione, nurturing, contenuto, risposta e reportistica in un unico sistema coordinato. Il team Fenice al completo, sempre operativo per la tua azienda.</span><span lang-en>Acquisition, nurturing, content, response and reporting in one coordinated system. The full Fenice team, always operational for your company.</span></p>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="service-card fade-up">
+        <h3>Enterprise</h3>
+        <p style="font-size:0.82rem;color:var(--gold);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em"><span lang-it>Su misura</span><span lang-en>Custom</span></p>
+        <ul style="list-style:none;font-size:0.9rem;color:var(--text-muted);line-height:2.1;margin-bottom:16px">
+          <li>✓ <span lang-it>Pacchetto Premium incluso</span><span lang-en>Premium package included</span></li>
+          <li>✓ <span lang-it>Automazione processi custom</span><span lang-en>Custom process automation</span></li>
+          <li>✓ <span lang-it>Integrazioni dedicate</span><span lang-en>Dedicated integrations</span></li>
+          <li>✓ <span lang-it>Supporto prioritario</span><span lang-en>Priority support</span></li>
+        </ul>
+        <p style="font-size:0.88rem;color:var(--text-muted)"><span lang-it>Per strutture complesse o esigenze specifiche: costruiamo un sistema completamente su misura, integrato con la tua infrastruttura esistente.</span><span lang-en>For complex structures or specific needs: we build a fully custom system, integrated with your existing infrastructure.</span></p>
+      </div>
+
+    </div>
+    <div class="fade-up" style="margin-top:48px;text-align:center">
+      <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.95rem;max-width:58ch;margin-left:auto;margin-right:auto"><span lang-it>Ogni piano si personalizza in base al settore, alla dimensione aziendale e agli obiettivi specifici. La prima call è gratuita — nessun impegno.</span><span lang-en>Every plan is personalised based on your sector, company size and specific goals. The first call is free — no commitment.</span></p>
+      <a href="#contatti" class="btn btn-primary">
+        <span lang-it>Richiedi un preventivo gratuito</span><span lang-en>Request a free quote</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Team ───────────────────────────────────────────── -->
+<section id="team">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Team</span>
+      <h2><span lang-it>I tuoi agenti, sempre al lavoro</span><span lang-en>Your agents, always working</span></h2>
+      <p><span lang-it>14 agenti specializzati, ciascuno con un ruolo preciso. Lavorano in squadra, si coordinano tra loro e riportano al CEO in ogni momento.</span><span lang-en>14 specialized agents, each with a precise role. They work as a team, coordinate with each other and report to the CEO at every moment.</span></p>
+      <p style="margin-top:12px"><span lang-it>Ogni agente è progettato per un'area specifica — non agenti generici, ma specialisti. Noku coordina il tutto: nessuna attività sfugge, nessuna priorità viene dimenticata.</span><span lang-en>Every agent is designed for a specific area — not generic agents, but specialists. Noku coordinates everything: no activity slips through, no priority is forgotten.</span></p>
+    </div>
+    <div class="team-hierarchy">
+
+      <!-- ── Layer Strategico: SaS ── -->
+      <div class="team-layer">
+        <div class="team-layer-header">
+          <span class="team-layer-label"><span lang-it>Layer Strategico</span><span lang-en>Strategic Layer</span></span>
+        </div>
+        <div class="team-layer-grid">
+          <div class="agent-card layer-sas fade-up">
+            <div class="agent-avatar">S</div>
+            <h3>SaS</h3>
+            <span class="agent-role"><span lang-it>Strategia & R&D</span><span lang-en>Strategy & R&D</span></span>
+            <p class="agent-desc">
+              <span lang-it>Analizza il mercato, studia le novità AI e guida l'evoluzione dell'agenzia nel tempo.</span>
+              <span lang-en>Analyses the market, tracks AI innovation and guides the agency's evolution over time.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-connector"></div>
+
+      <!-- ── Chief of Staff: Noku ── -->
+      <div class="team-layer">
+        <div class="team-layer-header">
+          <span class="team-layer-label">Chief of Staff</span>
+        </div>
+        <div class="team-layer-grid">
+          <div class="agent-card layer-cos fade-up">
+            <div class="agent-avatar">N</div>
+            <h3>Noku</h3>
+            <span class="agent-role">Chief of Staff</span>
+            <p class="agent-desc">
+              <span lang-it>Coordina tutti gli agenti, gestisce le priorità e tiene il CEO aggiornato su ogni progetto.</span>
+              <span lang-en>Coordinates all agents, manages priorities and keeps the CEO updated on every project.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-connector"></div>
+
+      <!-- ── HQ Board: Knox · Eura · Specter ── -->
+      <div class="team-layer">
+        <div class="team-layer-header">
+          <span class="team-layer-label">HQ Board</span>
+        </div>
+        <div class="team-layer-grid">
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">K</div>
+            <h3>Knox</h3>
+            <span class="agent-role"><span lang-it>Sicurezza & Dati</span><span lang-en>Security & Data</span></span>
+            <p class="agent-desc">
+              <span lang-it>Protegge i dati aziendali e dei clienti, monitora i sistemi e segnala qualsiasi anomalia.</span>
+              <span lang-en>Protects company and client data, monitors systems and flags any anomaly.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">E</div>
+            <h3>Eura</h3>
+            <span class="agent-role"><span lang-it>Financial Lead</span><span lang-en>Financial Lead</span></span>
+            <p class="agent-desc">
+              <span lang-it>Tiene traccia di budget, costi e performance finanziaria per ogni cliente e per l'agenzia.</span>
+              <span lang-en>Tracks budgets, costs and financial performance for every client and for the agency.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">Sp</div>
+            <h3>Specter</h3>
+            <span class="agent-role"><span lang-it>Legal & Compliance</span><span lang-en>Legal & Compliance</span></span>
+            <p class="agent-desc">
+              <span lang-it>Verifica contratti, garantisce la privacy e controlla ogni contenuto prima della pubblicazione.</span>
+              <span lang-en>Reviews contracts, ensures privacy compliance and checks every piece of content before publication.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Automazione: Anton ── -->
+      <div class="team-layer">
+        <div class="team-layer-header">
+          <span class="team-layer-label"><span lang-it>Automazione</span><span lang-en>Automation</span></span>
+        </div>
+        <div class="team-layer-grid">
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">A</div>
+            <h3>Anton</h3>
+            <span class="agent-role"><span lang-it>Monitor Automazioni</span><span lang-en>Automation Monitor</span></span>
+            <p class="agent-desc">
+              <span lang-it>Tiene d'occhio tutti i flussi automatici e interviene subito se qualcosa si ferma o rallenta.</span>
+              <span lang-en>Watches all automated flows and steps in immediately if something stops or slows down.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Operazioni: Ivy · Nexus · Uebi · Maili · Layla · Lidi · Mr. X ── -->
+      <div class="team-layer">
+        <div class="team-layer-header">
+          <span class="team-layer-label"><span lang-it>Operazioni</span><span lang-en>Operations</span></span>
+        </div>
+        <div class="team-layer-grid">
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">I</div>
+            <h3>Ivy</h3>
+            <span class="agent-role"><span lang-it>Research Lead</span><span lang-en>Research Lead</span></span>
+            <p class="agent-desc">
+              <span lang-it>Ricerca ogni giorno notizie AI e trend di settore rilevanti per il tuo mercato specifico.</span>
+              <span lang-en>Researches AI news and industry trends relevant to your specific market every day.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">Nx</div>
+            <h3>Nexus</h3>
+            <span class="agent-role">CTO & <span lang-it>Sviluppo</span><span lang-en>Development</span></span>
+            <p class="agent-desc">
+              <span lang-it>Costruisce e mantiene l'infrastruttura digitale: siti, dashboard clienti e integrazioni tecniche.</span>
+              <span lang-en>Builds and maintains the digital infrastructure: websites, client dashboards and technical integrations.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">U</div>
+            <h3>Uebi</h3>
+            <span class="agent-role">UX/UI <span lang-it>Design</span><span lang-en>Design</span></span>
+            <p class="agent-desc">
+              <span lang-it>Progetta e pubblica pagine web, profili e interfacce che comunicano chiaramente il tuo brand.</span>
+              <span lang-en>Designs and publishes web pages, profiles and interfaces that clearly communicate your brand.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">M</div>
+            <h3>Maili</h3>
+            <span class="agent-role">Email Marketing</span>
+            <p class="agent-desc">
+              <span lang-it>Crea e invia email personalizzate: newsletter, onboarding nuovi clienti e campagne di follow-up.</span>
+              <span lang-en>Creates and sends personalised emails: newsletters, new client onboarding and follow-up campaigns.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">L</div>
+            <h3>Layla</h3>
+            <span class="agent-role">Marketing Lead</span>
+            <p class="agent-desc">
+              <span lang-it>Pianifica le strategie di marketing, monitora i KPI e supervisiona le campagne pubblicitarie.</span>
+              <span lang-en>Plans marketing strategies, monitors KPIs and oversees advertising campaigns.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">Li</div>
+            <h3>Lidi</h3>
+            <span class="agent-role"><span lang-it>Sales & Lead Gen</span><span lang-en>Sales & Lead Gen</span></span>
+            <p class="agent-desc">
+              <span lang-it>Trova nuovi potenziali clienti, gestisce i contatti e accompagna ogni trattativa fino alla chiusura.</span>
+              <span lang-en>Finds new potential clients, manages contacts and guides every negotiation through to close.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">X</div>
+            <h3>Mr. X</h3>
+            <span class="agent-role">Content Lead</span>
+            <p class="agent-desc">
+              <span lang-it>Crea contenuti per social, sito web e comunicazioni aziendali, poi analizza i risultati per migliorare.</span>
+              <span lang-en>Creates content for social media, website and business communications, then analyses results to improve.</span>
+            </p>
+          </div>
+          <div class="agent-card fade-up">
+            <div class="agent-avatar">Ar</div>
+            <h3>Aria</h3>
+            <span class="agent-role"><span lang-it>Call Center AI h24</span><span lang-en>AI Call Center h24</span></span>
+            <p class="agent-desc">
+              <span lang-it>Risponde ai tuoi clienti h24 su chat web e WhatsApp, qualifica i lead e li passa al team commerciale — con la tua voce e identità.</span>
+              <span lang-en>Responds to your clients 24/7 on web chat and WhatsApp, qualifies leads and hands them to your sales team — in your brand's voice and identity.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Process ───────────────────────────────────────── -->
+<section id="processo">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></span>
+      <h2><span lang-it>Dal briefing ai risultati, in 5 passi</span><span lang-en>From briefing to results, in 5 steps</span></h2>
+      <p><span lang-it>Un processo chiaro, trasparente e replicabile. Ogni fase ha una durata definita, deliverable concreti e un punto di contatto dedicato con il team Fenice.</span><span lang-en>A clear, transparent and repeatable process. Every phase has a defined timeline, concrete deliverables and a dedicated point of contact with the Fenice team.</span></p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="step-num">1</div>
+        <h3><span lang-it>Analisi</span><span lang-en>Analysis</span></h3>
+        <p><span lang-it>Analizziamo il tuo business, i processi esistenti e gli obiettivi da raggiungere. Capire prima, costruire dopo.</span><span lang-en>We analyse your business, existing processes and goals to achieve. Understand first, build after.</span></p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">2</div>
+        <h3><span lang-it>Strategia</span><span lang-en>Strategy</span></h3>
+        <p><span lang-it>Definiamo un piano su misura con KPI chiari, milestone concrete e priorità condivise. Nessuna sorpresa.</span><span lang-en>We define a tailored plan with clear KPIs, concrete milestones and shared priorities. No surprises.</span></p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">3</div>
+        <h3><span lang-it>Costruzione</span><span lang-en>Build</span></h3>
+        <p><span lang-it>Costruiamo e configuriamo gli agenti AI per il tuo progetto, pronti ad operare in autonomia dal giorno uno.</span><span lang-en>We build and configure the AI agents for your project, ready to operate autonomously from day one.</span></p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">4</div>
+        <h3><span lang-it>Attivazione</span><span lang-en>Launch</span></h3>
+        <p><span lang-it>Avviamo il sistema, monitoriamo le performance e interveniamo in tempo reale. Il team è sempre presente nelle prime settimane.</span><span lang-en>We launch the system, monitor performance and intervene in real time. The team is always present in the first weeks.</span></p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">5</div>
+        <h3><span lang-it>Ottimizzazione</span><span lang-en>Optimize</span></h3>
+        <p><span lang-it>Aggiorniamo e miglioriamo continuamente basandoci sui dati reali. Il sistema cresce con te — mese dopo mese.</span><span lang-en>We continuously update and improve based on real data. The system grows with you — month after month.</span></p>
+      </div>
+    </div>
+    <div class="fade-up" style="margin-top:48px;padding:28px 32px;background:rgba(12,74,110,0.05);border-left:3px solid var(--navy);border-radius:var(--radius-lg);">
+      <p style="font-family:var(--font-serif);font-size:1.05rem;color:var(--navy);font-weight:600;margin-bottom:10px">
+        <span lang-it>Il tuo spazio, le tue regole.</span>
+        <span lang-en>Your space, your rules.</span>
+      </p>
+      <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0">
+        <span lang-it>Di default lavoriamo in una cartella condivisa nel tuo Google Drive — tutto ciò che creiamo è lì, visibile in tempo reale, sotto il tuo controllo. Se la tua azienda usa OneDrive, Dropbox o ha uno spazio dedicato sulla propria infrastruttura, possiamo adattarci. Fenice si integra con quello che hai già, non il contrario.</span>
+        <span lang-en>By default we work in a shared folder in your Google Drive — everything we create is there, visible in real time, under your control. If your company uses OneDrive, Dropbox or has dedicated space on its own infrastructure, we adapt. Fenice integrates with what you already have, not the other way around.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Clients ───────────────────────────────────────── -->
+<section id="clienti">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Clienti</span>
+      <h2><span lang-it>Con chi lavoriamo</span><span lang-en>Who we work with</span></h2>
+      <p><span lang-it>Lavoriamo a fianco di aziende che vogliono crescere implementando e usando l'intelligenza artificiale nel modo giusto. Costruiamo sistemi reali, misuriamo i risultati, e poi scaliamo. Nessuna promessa senza dati alla mano.</span><span lang-en>We work alongside companies that want to grow by implementing and using artificial intelligence the right way. We build real systems, measure results, then scale. No promises without data to back them up.</span></p>
+    </div>
+    <div class="clients-grid fade-up">
+      <!-- 1: TripInArt -->
+      <div class="client-card">
+        <span class="client-tag"><span lang-it>Turismo & Servizi</span><span lang-en>Tourism & Services</span></span>
+        <h3><a href="https://tripinartitaly.com/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">TripInArt</a></h3>
+        <p><span lang-it>Content strategy, lead generation e comunicazione digitale per esperienze artistiche in Italia.</span><span lang-en>Content strategy, lead generation and digital communication for art experiences in Italy.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Dal social media al follow-up clienti: un sistema integrato che porta le persone dall'interesse alla prenotazione, senza attrito.</span><span lang-en>From social media to client follow-up: an integrated system that takes people from interest to booking, without friction.</span></p>
+      </div>
+      <!-- 2: Albanian Odyssey -->
+      <div class="client-card">
+        <span class="client-tag"><span lang-it>Turismo & B2B</span><span lang-en>Tourism & B2B</span></span>
+        <h3><a href="https://www.albanianodyssey.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">Albanian Odyssey</a></h3>
+        <p><span lang-it>Automazione dei flussi, content e gestione guide turistiche per il portale <a href="https://www.protournet.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">ProTourNet</a>.</span><span lang-en>Flow automation, content and tourist guide management for the <a href="https://www.protournet.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">ProTourNet</a> portal.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Agenti AI che producono, pubblicano e aggiornano le guide in automatico — il team umano supervisiona, non lavora più manualmente.</span><span lang-en>AI agents that produce, publish and update guides automatically — the human team supervises, no longer works manually.</span></p>
+      </div>
+      <!-- 3: VerdeMotions -->
+      <div class="client-card">
+        <span class="client-tag"><span lang-it>Mobilità & Turismo</span><span lang-en>Mobility & Tourism</span></span>
+        <h3><a href="https://verdemotions.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">VerdeMotions</a></h3>
+        <p><span lang-it>Content, lead generation e comunicazione digitale per esperienze turistiche in mobilità elettrica a Roma.</span><span lang-en>Content, lead generation and digital communication for electric vehicle tourist experiences in Rome.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Un sistema di agenti AI che porta le persone dall'interesse all'esperienza — content, social e follow-up automatizzati.</span><span lang-en>An AI-agent system that takes people from interest to experience — content, social and follow-up automated.</span></p>
+      </div>
+      <!-- 4: Gadget Tech Italia -->
+      <div class="client-card">
+        <span class="client-tag"><span lang-it>Tech & Consumer</span><span lang-en>Tech & Consumer</span></span>
+        <h3><a href="https://gadgetechitalia.it" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">Gadget Tech Italia</a></h3>
+        <p><span lang-it>Presenza digitale completa: content, social, email, lead generation e automazioni per un brand tech nel mercato italiano.</span><span lang-en>Full digital presence: content, social, email, lead generation and automation for a tech brand in the Italian market.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Un sistema coordinato di agenti AI sempre operativi — tech che funziona, comunicazione che converte.</span><span lang-en>A coordinated system of always-on AI agents — tech that works, communication that converts.</span></p>
+      </div>
+      <!-- 5: Travels Albania Magazine -->
+      <div class="client-card">
+        <span class="client-tag"><span lang-it>Editoria & Turismo</span><span lang-en>Editorial & Tourism</span></span>
+        <h3><a href="https://travelsalbania.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">Travels Albania Magazine</a></h3>
+        <p><span lang-it>Produzione contenuti, SEO, email marketing e automazioni per la piattaforma editoriale dedicata all'Albania e al turismo internazionale.</span><span lang-en>Content production, SEO, email marketing and automation for the editorial platform dedicated to Albania and international tourism.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Ogni articolo trasformato in traffico qualificato e autorevolezza di settore — agenti AI al lavoro h24 per la crescita organica.</span><span lang-en>Every article turned into qualified traffic and industry authority — AI agents working 24/7 for organic growth.</span></p>
+      </div>
+      <!-- 6: CTA -->
+      <div class="client-card" style="border-style:dashed;background:rgba(12,74,110,0.02)">
+        <span class="client-tag"><span lang-it>Prossimo cliente</span><span lang-en>Next client</span></span>
+        <h3><span lang-it>La tua azienda</span><span lang-en>Your company</span></h3>
+        <p><span lang-it>Lavoriamo con aziende di ogni settore che credono nell'automazione intelligente come leva di crescita concreta. Nessun settore escluso.</span><span lang-en>We work with companies in every sector that believe in intelligent automation as a concrete growth lever. No sector excluded.</span></p>
+        <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Se hai una sfida da risolvere, iniziamo da lì. La prima call è gratuita, senza impegno.</span><span lang-en>If you have a challenge to solve, let's start there. The first call is free, no commitment.</span></p>
+        <a href="#contatti" class="client-link">
+          <span lang-it>Parliamo del tuo progetto</span><span lang-en>Let's talk about your project</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ───────────────────────────────────────── -->
+<section id="contatti">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info fade-up">
+        <span class="section-label"><span lang-it>Contatti</span><span lang-en>Contact</span></span>
+        <h2><span lang-it>Parlaci del tuo progetto</span><span lang-en>Tell us about your project</span></h2>
+        <p><span lang-it>Ogni buon progetto inizia da una conversazione. Scrivici e ti risponderemo entro 24 ore.</span><span lang-en>Every good project starts with a conversation. Write to us and we'll reply within 24 hours.</span></p>
+        <p style="margin-top:12px"><span lang-it>Non serve avere un brief perfetto: raccontaci la sfida, ci pensiamo noi a trasformarla in un piano concreto. La prima call è gratuita.</span><span lang-en>You don't need a perfect brief: tell us the challenge, we'll turn it into a concrete plan. The first call is free.</span></p>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><span lang-it>Risposta entro 24 ore</span><span lang-en>Reply within 24 hours</span></span>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Italia</span>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@fenice.digital" style="color:inherit;text-decoration:none">info@fenice.digital</a>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <form id="contact-form">
+          <!-- Honeypot anti-spam (hidden, bots fill it) -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-group">
+            <label for="nome"><span lang-it>Nome *</span><span lang-en>Name *</span></label>
+            <input type="text" id="nome" name="nome" required placeholder="Nome Cognome" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="hello@youremail.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="messaggio"><span lang-it>Messaggio *</span><span lang-en>Message *</span></label>
+            <textarea id="messaggio" name="messaggio" required placeholder="Raccontaci del tuo progetto..."></textarea>
+          </div>
+          <div class="h-captcha" data-captcha="true" style="margin-bottom:20px"></div>
+          <div class="gdpr-row">
+            <input type="checkbox" id="gdpr-check" name="gdpr" required>
+            <label for="gdpr-check">
+              <span lang-it>Accetto il trattamento dei miei dati personali come descritto nella <a href="/privacy">Privacy Policy</a>. *</span>
+              <span lang-en>I accept the processing of my personal data as described in the <a href="/privacy">Privacy Policy</a>. *</span>
+            </label>
+          </div>
+          <button type="submit" id="contact-submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px">
+            <span lang-it>Invia messaggio</span><span lang-en>Send message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-error" id="form-error"></div>
+        </form>
+        <div class="form-success" id="form-success">
+          <p style="font-size:2rem;margin-bottom:12px">✓</p>
+          <span lang-it>Messaggio ricevuto! Ti risponderemo entro 24 ore.</span>
+          <span lang-en>Message received! We'll reply within 24 hours.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="fenice-logo-white.png" alt="Fenice" class="logo-img">
+          <div class="logo-divider"></div>
+          <div class="logo-text">
+            <span class="logo-name">Fenice</span>
+            <span class="logo-sub">Digital Agency</span>
+          </div>
+        </a>
+        <p><span lang-it>Una digital agency AI che costruisce e gestisce agenti intelligenti per aziende che vogliono crescere.</span><span lang-en>An AI digital agency that builds and manages intelligent agents for companies that want to grow.</span></p>
+        <a href="mailto:info@fenice.digital" class="footer-email">info@fenice.digital</a>
+      </div>
+      <div class="footer-col">
+        <h4><span lang-it>Navigazione</span><span lang-en>Navigation</span></h4>
+        <a href="#chi-siamo"><span lang-it>Chi siamo</span><span lang-en>About</span></a>
+        <a href="#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <a href="#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
+        <a href="#team">Team</a>
+        <a href="#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
+        <a href="#clienti"><span lang-it>Clienti</span><span lang-en>Clients</span></a>
+      </div>
+      <div class="footer-col">
+        <h4>Fenice</h4>
+        <a href="/privacy">Privacy & Cookie Policy</a>
+        <a href="/faq">F.A.Q.</a>
+        <a href="#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
+        <a href="/hq/login">HQ — Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fenice.Digital — All rights reserved.</span>
+      <span style="color:rgba(255,255,255,0.45)">Built with ❤️ by Fenice</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── Scripts ───────────────────────────────────────── -->
+<script>
+  /* ── Language toggle ─────────────────────────────── */
+  var currentLang = localStorage.getItem('fenice-lang') || 'it';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.documentElement.lang = lang;
+    // Update all lang label instances (header desktop + mobile menu)
+    document.querySelectorAll('.lang-label').forEach(function(el) {
+      el.textContent = lang === 'it' ? 'EN' : 'IT';
+    });
+    localStorage.setItem('fenice-lang', lang);
+    document.title = lang === 'en'
+      ? 'Fenice — Your company, run by intelligent agents'
+      : 'Fenice — La tua azienda, gestita da agenti intelligenti';
+    var ta = document.getElementById('messaggio');
+    if (ta) ta.placeholder = lang === 'en' ? 'Tell us about your project...' : 'Raccontaci del tuo progetto...';
+    var nome = document.getElementById('nome');
+    if (nome) nome.placeholder = 'Nome Cognome';
+    var emailF = document.getElementById('email');
+    if (emailF) emailF.placeholder = 'hello@youremail.com';
+  }
+
+  function toggleLang() {
+    applyLang(currentLang === 'it' ? 'en' : 'it');
+  }
+
+  applyLang(currentLang);
+
+  /* ── Header scroll ───────────────────────────────── */
+  var hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', function() {
+    hdr.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ── Process steps — synapse chain: line → circle border from both sides ── */
+  (function() {
+    var container = document.querySelector('.process-steps');
+    if (!container) return;
+    var steps = Array.from(container.querySelectorAll('.process-step'));
+    var nums  = steps.map(function(s) { return s.querySelector('.step-num'); });
+    var R = 28, HC = Math.PI * R;
+
+    function desk() { return window.innerWidth > 1024; }
+
+    /* SVG overlay */
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1;';
+    container.insertBefore(svg, container.firstChild);
+
+    /* Glow filter (DOM API, no innerHTML) */
+    var defs = document.createElementNS(NS, 'defs');
+    var filt = document.createElementNS(NS, 'filter');
+    filt.setAttribute('id', 'sglow'); filt.setAttribute('x','-40%'); filt.setAttribute('y','-40%');
+    filt.setAttribute('width','180%'); filt.setAttribute('height','180%');
+    var fb = document.createElementNS(NS, 'feGaussianBlur');
+    fb.setAttribute('in','SourceGraphic'); fb.setAttribute('stdDeviation','2.5'); fb.setAttribute('result','b');
+    var fm = document.createElementNS(NS, 'feMerge');
+    var fm1 = document.createElementNS(NS, 'feMergeNode'); fm1.setAttribute('in','b');
+    var fm2 = document.createElementNS(NS, 'feMergeNode'); fm2.setAttribute('in','SourceGraphic');
+    fm.appendChild(fm1); fm.appendChild(fm2);
+    filt.appendChild(fb); filt.appendChild(fm); defs.appendChild(filt); svg.appendChild(defs);
+
+    /* Per-step: two half-circle arcs that draw from top simultaneously */
+    var borders = steps.map(function() {
+      function arc() {
+        var a = document.createElementNS(NS, 'path');
+        a.setAttribute('fill','none'); a.setAttribute('stroke','#b8956a');
+        a.setAttribute('stroke-width','2.5'); a.setAttribute('stroke-linecap','round');
+        a.setAttribute('filter','url(#sglow)');
+        a.style.strokeDasharray = HC.toFixed(2)+'px';
+        a.style.strokeDashoffset = HC.toFixed(2)+'px';
+        a.style.opacity = '0';
+        svg.appendChild(a); return a;
+      }
+      return { a1:arc(), a2:arc(), on:false };
+    });
+
+    function getC(el) {
+      var er=el.getBoundingClientRect(), cr=container.getBoundingClientRect();
+      return { x:er.left+er.width/2-cr.left, y:er.top+er.height/2-cr.top };
+    }
+
+    function updateBorderPaths(i) {
+      var c=getC(nums[i]), cx=c.x.toFixed(1), cyT=(c.y-R).toFixed(1), cyB=(c.y+R).toFixed(1);
+      borders[i].a1.setAttribute('d','M '+cx+' '+cyT+' A '+R+' '+R+' 0 0 1 '+cx+' '+cyB);
+      borders[i].a2.setAttribute('d','M '+cx+' '+cyT+' A '+R+' '+R+' 0 0 0 '+cx+' '+cyB);
+    }
+
+    function showBorder(i, dur, cb) {
+      if (borders[i].on) { if (cb) cb(); return; }
+      borders[i].on = true; updateBorderPaths(i);
+      ['a1','a2'].forEach(function(k) {
+        var a=borders[i][k];
+        a.style.transition='none'; a.style.strokeDashoffset=HC.toFixed(2)+'px'; a.style.opacity='1';
+      });
+      requestAnimationFrame(function() {
+        ['a1','a2'].forEach(function(k) {
+          borders[i][k].style.transition='stroke-dashoffset '+(dur/1000).toFixed(3)+'s cubic-bezier(0.4,0,0.2,1)';
+          borders[i][k].style.strokeDashoffset='0';
+        });
+        if (cb) setTimeout(cb, dur+15);
+      });
+    }
+
+    function hideBorder(i) {
+      borders[i].on=false;
+      ['a1','a2'].forEach(function(k) {
+        var a=borders[i][k];
+        a.style.transition='none'; a.style.opacity='0'; a.style.strokeDashoffset=HC.toFixed(2)+'px';
+      });
+    }
+
+    /* Per-segment: bezier path + traveling pulse dot */
+    var segs = steps.slice(0,-1).map(function() {
+      var sp=document.createElementNS(NS,'path');
+      sp.setAttribute('fill','none'); sp.setAttribute('stroke','#b8956a');
+      sp.setAttribute('stroke-width','2'); sp.setAttribute('stroke-linecap','round');
+      sp.setAttribute('filter','url(#sglow)'); sp.style.opacity='0'; svg.appendChild(sp);
+      var sd=document.createElementNS(NS,'circle');
+      sd.setAttribute('r','3'); sd.setAttribute('fill','#d4a97a');
+      sd.setAttribute('filter','url(#sglow)'); sd.style.opacity='0'; svg.appendChild(sd);
+      return { path:sp, dot:sd, raf:null, t:0, on:false };
+    });
+
+    function segD(i) {
+      var c1=getC(nums[i]), c2=getC(nums[i+1]);
+      var dx=c2.x-c1.x, dy=c2.y-c1.y, dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var nx=dx/dist, ny=dy/dist;
+      var p1x=c1.x+nx*R, p1y=c1.y+ny*R, p2x=c2.x-nx*R, p2y=c2.y-ny*R;
+      var arc=Math.min(dist*0.1,14), mx=(p1x+p2x)/2+ny*arc, my=(p1y+p2y)/2-nx*arc;
+      return 'M '+p1x.toFixed(1)+' '+p1y.toFixed(1)+' Q '+mx.toFixed(1)+' '+my.toFixed(1)+' '+p2x.toFixed(1)+' '+p2y.toFixed(1);
+    }
+
+    function showSeg(i, dur, cb) {
+      var seg=segs[i]; if (seg.on) { if (cb) cb(); return; }
+      seg.on=true; seg.path.setAttribute('d',segD(i));
+      var len=seg.path.getTotalLength();
+      seg.path.style.transition='none'; seg.path.style.strokeDasharray=len+'px';
+      seg.path.style.strokeDashoffset=len+'px'; seg.path.style.opacity='0.82';
+      requestAnimationFrame(function() {
+        seg.path.style.transition='stroke-dashoffset '+(dur/1000).toFixed(3)+'s cubic-bezier(0.4,0,0.2,1)';
+        seg.path.style.strokeDashoffset='0';
+        setTimeout(function() {
+          if (!seg.on) return;
+          seg.path.style.strokeDasharray=''; seg.path.style.strokeDashoffset=''; seg.path.style.transition='';
+          seg.t=0; seg.dot.style.opacity='1';
+          (function pulse() {
+            if (!seg.on) return;
+            seg.t=(seg.t+1.6)%len;
+            try { var pt=seg.path.getPointAtLength(seg.t); seg.dot.setAttribute('cx',pt.x.toFixed(1)); seg.dot.setAttribute('cy',pt.y.toFixed(1)); } catch(e){}
+            seg.raf=requestAnimationFrame(pulse);
+          })();
+          if (cb) cb();
+        }, dur+15);
+      });
+    }
+
+    function hideSeg(i) {
+      var seg=segs[i]; seg.on=false;
+      seg.path.style.strokeDasharray=''; seg.path.style.strokeDashoffset='';
+      seg.path.style.transition=''; seg.path.style.opacity='0'; seg.dot.style.opacity='0';
+      if (seg.raf) { cancelAnimationFrame(seg.raf); seg.raf=null; }
+    }
+
+    /* Chain state */
+    var cur=-1, tgt=-1, running=false, advancing=false;
+
+    function resetAll() {
+      running=false; advancing=false; cur=-1; tgt=-1;
+      steps.forEach(function(s){s.classList.remove('step-active');});
+      steps.forEach(function(s,i){hideBorder(i);});
+      segs.forEach(function(s,i){hideSeg(i);});
+    }
+
+    /* Advance: draw seg[cur] → border[cur+1] → repeat */
+    function advance() {
+      if (!running||advancing||cur>=tgt) return;
+      advancing=true; var from=cur;
+      showSeg(from,120,function() {
+        advancing=false; if (!running) return;
+        cur=from+1; steps[cur].classList.add('step-active');
+        showBorder(cur,110,function() { if (running) advance(); });
+      });
+    }
+
+    function goTo(idx) {
+      tgt=idx;
+      if (!running) {
+        running=true; advancing=false; cur=0;
+        steps[0].classList.add('step-active');
+        showBorder(0,110,function() { if (running) advance(); });
+      } else if (idx<cur) {
+        resetAll(); if (idx>=0) goTo(idx);
+      } else { advance(); }
+    }
+
+    /* Desktop: hover */
+    steps.forEach(function(step,i) {
+      step.addEventListener('mouseenter',function() { if (desk()) goTo(i); });
+    });
+    container.addEventListener('mouseleave',function() { if (desk()) resetAll(); });
+
+    /* Mobile/tablet: scale only — IntersectionObserver per step */
+    var topMob=-1;
+    function mobObsCb(entries) {
+      entries.forEach(function(entry) {
+        if (desk()||!entry.isIntersecting) return;
+        var idx=steps.indexOf(entry.target);
+        if (idx>topMob) { topMob=idx; steps.forEach(function(s,i){s.classList.toggle('step-active',i<=topMob);}); }
+      });
+    }
+    steps.forEach(function(s){ new IntersectionObserver(mobObsCb,{threshold:0.6}).observe(s); });
+
+    var wasD=desk();
+    window.addEventListener('resize',function(){var now=desk();if(now!==wasD){wasD=now;topMob=-1;resetAll();}});
+  })();
+
+  /* ── Back to top + scroll progress ring ─────────── */
+  var btt = document.getElementById('back-to-top');
+  var bttRing = document.getElementById('btt-ring-fill');
+  var RING_C = 138.23;
+  window.addEventListener('scroll', function() {
+    var scrolled = window.scrollY;
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = total > 0 ? scrolled / total : 0;
+    bttRing.style.strokeDashoffset = RING_C * (1 - pct);
+    btt.classList.toggle('visible', scrolled > 240);
+  }, { passive: true });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Mobile menu (dropdown push-down) ───────────── */
+  function setMenuIcon(open) {
+    document.getElementById('hamburger-icon-bars').style.display = open ? 'none' : 'block';
+    document.getElementById('hamburger-icon-x').style.display = open ? 'block' : 'none';
+  }
+  var menuScrollStart = 0;
+  function toggleMenu() {
+    var links = document.getElementById('nav-links');
+    var isOpen = links.classList.toggle('open');
+    setMenuIcon(isOpen);
+    if (isOpen) { menuScrollStart = window.scrollY; }
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    setMenuIcon(false);
+  }
+  // Auto-close when scrolled past threshold (menu height / 2, min 80px)
+  window.addEventListener('scroll', function() {
+    var links = document.getElementById('nav-links');
+    if (links && links.classList.contains('open')) {
+      var menuH = links.scrollHeight || 280;
+      var threshold = Math.max(menuH * 0.5, 80);
+      if (Math.abs(window.scrollY - menuScrollStart) > threshold) { closeMenu(); }
+    }
+  }, { passive: true });
+  // Close on nav link click
+  document.querySelectorAll('#nav-links > a').forEach(function(a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  /* ── Auth nav link (Login / Esci) ────────────────── */
+  (function() {
+    if (typeof FeniceAuth === 'undefined') return;
+    var r = FeniceAuth.realms['ceo'];
+    if (!r) return;
+    try {
+      var stored = JSON.parse(localStorage.getItem(r.key) || 'null');
+      if (stored && stored.token === r.token && stored.expires > Date.now()) {
+        var link = document.getElementById('nav-auth-link');
+        if (link) {
+          link.textContent = 'Esci';
+          link.href = '#';
+          link.classList.add('esci');
+          link.onclick = function(e) { e.preventDefault(); FeniceAuth.logout('ceo'); };
+        }
+        return;
+      }
+    } catch(e) {}
+  })();
+
+  /* ── Fade-up on scroll ───────────────────────────── */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Stagger children
+        Array.from(e.target.parentElement.querySelectorAll('.fade-up')).forEach(function(el, i) {
+          el.style.transitionDelay = (i * 0.08) + 's';
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* ── Contact form (AJAX → contact.php) ──────────── */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nome = document.getElementById('nome').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var msg = document.getElementById('messaggio').value.trim();
+    var gdpr = document.getElementById('gdpr-check').checked;
+    var errEl = document.getElementById('form-error');
+    var btn = document.getElementById('contact-submit');
+
+    errEl.style.display = 'none';
+    if (!nome || !email || !msg) {
+      errEl.textContent = currentLang === 'en' ? 'Please fill in all required fields.' : 'Compila tutti i campi obbligatori.';
+      errEl.style.display = 'block'; return;
+    }
+    if (!gdpr) {
+      errEl.textContent = currentLang === 'en' ? 'Please accept the privacy policy to continue.' : 'Devi accettare la privacy policy per continuare.';
+      errEl.style.display = 'block'; return;
+    }
+
+    var captchaEl = document.querySelector('textarea[name=h-captcha-response]');
+    if (!captchaEl || !captchaEl.value) {
+      errEl.textContent = currentLang === 'en' ? 'Please complete the captcha.' : 'Completa il captcha prima di inviare.';
+      errEl.style.display = 'block'; return;
+    }
+
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '2a07d67a-38d7-4353-ba15-8ba2e2c2e6d2',
+        subject: '[Fenice Lead] ' + nome,
+        name: nome,
+        email: email,
+        message: msg,
+        'h-captcha-response': captchaEl.value
+      })
+    })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success) {
+          document.getElementById('contact-form').style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          errEl.textContent = currentLang === 'en' ? 'Error sending message. Please try again.' : 'Errore nell\'invio. Riprova più tardi.';
+          errEl.style.display = 'block';
+          btn.disabled = false; btn.style.opacity = '1';
+        }
+      })
+      .catch(function() {
+        errEl.textContent = currentLang === 'en' ? 'Network error. Please try again.' : 'Errore di rete. Riprova più tardi.';
+        errEl.style.display = 'block';
+        btn.disabled = false; btn.style.opacity = '1';
+      });
+  });
+
+  /* ── Cookie banner ───────────────────────────────── */
+  var banner = document.getElementById('cookie-banner');
+  if (!localStorage.getItem('fenice-cookie-consent')) {
+    setTimeout(function() { banner.classList.add('visible'); }, 800);
+  }
+  function cookieAccept() {
+    localStorage.setItem('fenice-cookie-consent', 'accepted');
+    banner.classList.remove('visible');
+  }
+  function cookieDecline() {
+    localStorage.setItem('fenice-cookie-consent', 'declined');
+    banner.classList.remove('visible');
+  }
+
+  /* ── Hero Canvas — Synapse Network (desktop only) ── */
+  (function() {
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas || getComputedStyle(canvas).display === 'none') return;
+
+    var ctx = canvas.getContext('2d');
+    var W, H, particles;
+    var mouse = { x: -9999, y: -9999 };
+    var NAVY = '12,74,110';
+    var GOLD = '184,149,106';
+    var scrollVel = 0, lastScrollY = window.scrollY;
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function Particle() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r     = Math.random() * 3 + 2.5;
+      this.alpha = Math.random() * 0.45 + 0.38;
+      this.gold  = Math.random() < 0.15;
+    }
+
+    Particle.prototype.update = function() {
+      if (mouse.x !== -9999) {
+        var dx = mouse.x - this.x, dy = mouse.y - this.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 260 && dist > 0) {
+          var f = (1 - dist / 260) * 0.03;
+          this.vx += (dx / dist) * f;
+          this.vy += (dy / dist) * f;
+        }
+      }
+      this.vx *= 0.98; this.vy *= 0.98;
+      this.x  += this.vx; this.y += this.vy;
+      if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
+      if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
+    };
+
+    Particle.prototype.draw = function() {
+      var col = this.gold ? GOLD : NAVY;
+      if (mouse.x !== -9999) {
+        var dx = mouse.x - this.x, dy = mouse.y - this.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 180) {
+          var ga = (1 - dist / 180) * 0.28;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r * 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + col + ',' + ga + ')';
+          ctx.fill();
+        }
+      }
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + col + ',' + this.alpha + ')';
+      ctx.fill();
+    };
+
+    function drawConnections() {
+      var scrollBoost = 1 + scrollVel * 2.4;
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 165) {
+            var alpha = (1 - dist / 165) * 0.38 * scrollBoost;
+            if (mouse.x !== -9999) {
+              var mx = (particles[i].x + particles[j].x) / 2;
+              var my = (particles[i].y + particles[j].y) / 2;
+              var md = Math.sqrt((mouse.x - mx) * (mouse.x - mx) + (mouse.y - my) * (mouse.y - my));
+              if (md < 200) alpha = Math.min(alpha * (1 + (1 - md / 200) * 1.8), 0.85);
+            }
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(' + NAVY + ',' + Math.min(alpha, 0.85) + ')';
+            ctx.lineWidth = 1.3;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function init() {
+      resize();
+      var count = Math.min(Math.floor((W * H) / 9500), 95);
+      particles = [];
+      for (var i = 0; i < count; i++) particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      scrollVel *= 0.88;
+      drawConnections();
+      particles.forEach(function(p) { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('scroll', function() {
+      var rect = canvas.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        var delta = Math.abs(window.scrollY - lastScrollY);
+        scrollVel = Math.min(scrollVel + delta * 0.018, 1.4);
+      }
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+
+    canvas.parentElement.addEventListener('mousemove', function(e) {
+      var rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    canvas.parentElement.addEventListener('mouseleave', function() {
+      mouse.x = -9999; mouse.y = -9999;
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 120);
+    }, { passive: true });
+
+    init();
+    animate();
+  })();
+</script>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+</body>
+</html>

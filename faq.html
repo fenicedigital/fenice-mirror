@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/fenice-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/fenice-favicon-64.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/fenice-favicon-128.png">
+  <title>F.A.Q. — Fenice</title>
+  <meta name="description" content="Domande frequenti su Fenice Digital Agency. Come funzionano gli agenti AI, i piani, i costi e come iniziare.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fenice.digital/faq">
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --bg-alt: #f2efe9;
+      --navy: #0c4a6e;
+      --navy-light: #1e6a8e;
+      --navy-dark: #083555;
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --border: #e0dbd3;
+      --gold: #b8956a;
+      --white: #ffffff;
+      --font-serif: Georgia, 'Times New Roman', 'Palatino Linotype', serif;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --radius: 4px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 3px rgba(12,74,110,0.08);
+      --shadow: 0 4px 20px rgba(12,74,110,0.10);
+      --max-w: 1200px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: normal; line-height: 1.2; }
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { color: var(--navy-light); }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Header ───────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: var(--shadow); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    /* ─── Logo V.B. ────────────────────────────────── */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+    .logo-divider { width: 1px; height: 26px; background: var(--border); flex-shrink: 0; }
+    .logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .logo-name {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: normal;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-family: var(--font-sans);
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .footer-brand .logo .logo-name { color: var(--white); }
+    .footer-brand .logo .logo-divider { background: rgba(255,255,255,0.2); }
+
+    /* ─── Nav ──────────────────────────────────────── */
+    nav { display: flex; align-items: center; gap: 8px; }
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--navy); background: rgba(12,74,110,0.06); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-primary:hover { background: var(--navy-light); color: var(--white); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover { border-color: var(--navy); color: var(--navy); }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-extras { display: none; }
+
+    /* ─── Page content ─────────────────────────────── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 120px 24px 96px;
+    }
+
+    .page-header {
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px;
+    }
+    .page-header .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--navy); margin-bottom: 12px; }
+    .page-intro { font-size: 1rem; color: var(--text-muted); margin-top: 8px; }
+
+    /* ─── FAQ Accordion ────────────────────────────── */
+    .faq-category {
+      margin-bottom: 48px;
+    }
+    .faq-category-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: normal;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--navy); }
+    .faq-question.open { color: var(--navy); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+      color: var(--text-muted);
+    }
+    .faq-question.open .faq-icon {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-answer.open { max-height: 600px; }
+    .faq-answer-inner {
+      padding: 0 0 24px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .faq-answer-inner p { margin-bottom: 10px; max-width: none; }
+    .faq-answer-inner p:last-child { margin-bottom: 0; }
+    .faq-answer-inner strong { color: var(--text); }
+
+    /* CTA section */
+    .faq-cta {
+      margin-top: 64px;
+      padding: 48px 40px;
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .faq-cta h2 {
+      color: var(--white);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .faq-cta p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 48ch; margin-left: auto; margin-right: auto; }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-1px); color: var(--white); }
+
+    /* ─── Footer ────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.65; max-width: 32ch; margin-top: 16px; color: rgba(255,255,255,0.75); }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-brand .footer-email {
+      display: inline-block;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-brand .footer-email:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    /* ─── Lang helpers ─────────────────────────────── */
+    [lang-it], .it-only { display: block; }
+    [lang-en], .en-only { display: none; }
+    body.lang-en [lang-it], body.lang-en .it-only { display: none; }
+    body.lang-en [lang-en], body.lang-en .en-only { display: block; }
+    body.lang-en span[lang-it] { display: none; }
+    body.lang-en span[lang-en] { display: inline; }
+    span[lang-en] { display: none; }
+    span[lang-it] { display: inline; }
+
+    /* ─── Responsive ────────────────────────────────── */
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      nav > .lang-toggle { display: none; }
+      .header-cta { display: none !important; }
+      .hamburger { display: flex !important; align-items: center; justify-content: center; }
+      nav .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+        background: var(--bg);
+        z-index: 200;
+        border-top: 0px solid var(--border);
+      }
+      nav .nav-links.open {
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 12px 48px rgba(12,74,110,0.2);
+        border-top-width: 2px;
+      }
+      nav .nav-links > a {
+        display: flex;
+        align-items: center;
+        font-size: 1.05rem;
+        font-weight: 500;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+      }
+      .mobile-extras {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+        background: var(--bg-alt);
+      }
+      .mobile-extras .lang-toggle { display: inline-flex !important; align-self: flex-start; }
+      .mobile-extras .btn-primary { display: flex !important; width: 100%; justify-content: center; padding: 15px 22px; font-size: 1rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      main { padding: 100px 16px 72px; }
+      .faq-cta { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Header ───────────────────────────────────────── -->
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <img src="fenice-logo.png" alt="Fenice" class="logo-img">
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <span class="logo-name">Fenice</span>
+        <span class="logo-sub">Digital Agency</span>
+      </div>
+    </a>
+    <nav>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <a href="index.html#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
+        <a href="index.html#clienti"><span lang-it>Clienti</span><span lang-en>Clients</span></a>
+        <a href="index.html#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
+        <div class="mobile-extras">
+          <button class="lang-toggle" onclick="toggleLang()" aria-label="Cambia lingua">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-label">EN</span>
+          </button>
+          <a href="index.html#contatti" class="btn btn-primary" onclick="closeMenu()">
+            <span lang-it>Parla con noi</span><span lang-en>Let's talk</span>
+          </a>
+        </div>
+      </div>
+      <button class="lang-toggle" id="lang-btn" onclick="toggleLang()" aria-label="Cambia lingua">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-label">EN</span>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="hamburger-icon-bars"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="hamburger-icon-x" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a href="index.html#contatti" class="btn btn-primary header-cta" style="margin-left:8px">
+        <span lang-it>Parla con noi</span><span lang-en>Let's talk</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─── Content ──────────────────────────────────────── -->
+<main>
+
+  <!-- ITALIANO -->
+  <div lang-it>
+    <div class="page-header">
+      <span class="eyebrow">Domande frequenti</span>
+      <h1>F.A.Q.</h1>
+      <p class="page-intro">Tutto quello che devi sapere su Fenice, i nostri agenti e come funziona il servizio.</p>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Generale</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Cos'è Fenice e cosa fa esattamente?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Fenice è una <strong>digital agency AI</strong> fondata da Anduel Guri. Costruiamo e gestiamo un team di 14 agenti AI specializzati che lavorano per le aziende clienti h24: automazione dei processi, content, lead generation, email marketing, analytics e assistenza clienti.</p>
+            <p>Non vendiamo consulenza: costruiamo sistemi che operano in modo continuativo, monitorati e ottimizzati nel tempo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Chi c'è dietro Fenice?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Fenice è fondata da <strong>Anduel Guri</strong> (CEO & Founder), con 14 agenti AI specializzati che operano sotto la sua supervisione diretta. Ogni agente ha un ruolo preciso — dalla strategia alla sicurezza, dal marketing alla gestione clienti — e lavora in modo coordinato come un team aziendale reale.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Fenice è adatta anche alle piccole imprese?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sì. I nostri sistemi si adattano alla dimensione del cliente. Per le piccole imprese configuriamo gli agenti su processi specifici e prioritari, evitando overhead non necessario. L'obiettivo è sempre il ritorno sull'investimento misurabile.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Agenti AI e Servizi</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Come funzionano gli agenti AI di Fenice?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Ogni agente è un sistema AI specializzato con un ruolo definito, memoria propria e un set di strumenti operativi. Gli agenti comunicano tra loro, si coordinano attraverso Noku (Chef of Staff) e riportano al CEO in ogni momento.</p>
+            <p>Operano su un <strong>PC Dedicato potenziato all'AI</strong> attivo h24, con flussi automatizzati tramite n8n e comunicazione centralizzata su Discord.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Quale AI viene usata? Posso usare la mia?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Offriamo due piani:</p>
+            <p><strong>Piano Premium (default):</strong> utilizziamo Claude AI (Anthropic) — Fenice copre tutti i costi AI. Zero setup per il cliente, massima qualità.</p>
+            <p><strong>Piano Standard (opt-in):</strong> stessa struttura di agenti, ma il cliente porta la propria API key (Gemini, OpenAI, ecc.). I costi AI rimangono nel suo account. Richiede un'unica configurazione iniziale.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          I miei dati sono al sicuro?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sì. Adottiamo il <strong>Shared Drive Model</strong>: il cliente crea una cartella nel suo Google Drive e la condivide con Fenice come Editor. Lavoriamo esclusivamente in quello spazio — il cliente vede tutto in tempo reale e può revocare l'accesso in qualsiasi momento.</p>
+            <p>Knox, il nostro agente Security Lead, monitora i sistemi e conduce audit di sicurezza periodici. Non accediamo mai a dati non condivisi esplicitamente dal cliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Iniziare a lavorare con Fenice</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Come si inizia a lavorare con Fenice?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Il processo è in 5 passi: <strong>Analisi → Strategia → Costruzione → Attivazione → Ottimizzazione</strong>.</p>
+            <p>Si inizia con una conversazione: ci racconti il tuo business, i processi che vuoi automatizzare e gli obiettivi da raggiungere. Definiamo insieme il piano, configuriamo gli agenti e avviamo il sistema. Ti rispondiamo entro 24 ore dalla prima richiesta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Quanto tempo ci vuole per vedere i primi risultati?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Dipende dalla complessità del progetto. Le automazioni semplici (form, email, workflow) sono operative in pochi giorni. Sistemi più articolati (agenti multi-canale, dashboard clienti, lead gen automatizzata) richiedono 2-4 settimane di configurazione e test.</p>
+            <p>Ogni progetto ha KPI chiari e dashboard dedicate — sai sempre dove siamo e cosa stanno producendo gli agenti.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso fermare o modificare il servizio in corso?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sì. Il servizio è flessibile: puoi aggiungere o rimuovere agenti, cambiare obiettivi, modificare flussi o sospendere temporaneamente. Nessun lock-in. I dati e i contenuti creati restano sempre tuoi nel tuo Google Drive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta">
+      <h2>Non hai trovato la risposta?</h2>
+      <p>Scrivici direttamente. Ti risponderemo entro 24 ore con tutto quello che ti serve sapere.</p>
+      <a href="index.html#contatti" class="btn-gold">
+        Contattaci
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div lang-en>
+    <div class="page-header">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h1>F.A.Q.</h1>
+      <p class="page-intro">Everything you need to know about Fenice, our agents and how the service works.</p>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">General</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is Fenice and what exactly does it do?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Fenice is an <strong>AI digital agency</strong> founded by Anduel Guri. We build and manage a team of 14 specialised AI agents that work for client companies 24/7: process automation, content, lead generation, email marketing, analytics and customer support.</p>
+            <p>We don't sell consulting: we build systems that operate continuously, monitored and optimised over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Who is behind Fenice?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Fenice is founded by <strong>Anduel Guri</strong> (CEO & Founder), with 14 specialised AI agents operating under his direct supervision. Each agent has a defined role — from strategy to security, from marketing to client management — working in a coordinated way like a real business team.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is Fenice suitable for small businesses?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Yes. Our systems adapt to the client's size. For small businesses we configure agents on specific priority processes, avoiding unnecessary overhead. The goal is always a measurable return on investment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">AI Agents & Services</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do Fenice's AI agents work?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Each agent is a specialised AI system with a defined role, its own memory and a set of operational tools. Agents communicate with each other, coordinate through Noku (Chief of Staff) and report to the CEO at all times.</p>
+            <p>They operate on a <strong>dedicated AI-powered PC</strong> running 24/7, with automated workflows via n8n and centralised communication on Discord.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Which AI is used? Can I use my own?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>We offer two plans:</p>
+            <p><strong>Premium plan (default):</strong> we use Claude AI (Anthropic) — Fenice covers all AI costs. Zero setup for the client, maximum quality.</p>
+            <p><strong>Standard plan (opt-in):</strong> same agent structure, but the client brings their own API key (Gemini, OpenAI, etc.). AI costs stay in their account. Requires a one-time initial setup.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is my data safe?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Yes. We use the <strong>Shared Drive Model</strong>: the client creates a folder in their Google Drive and shares it with Fenice as Editor. We work exclusively in that space — the client sees everything in real time and can revoke access at any time.</p>
+            <p>Knox, our Security Lead agent, monitors systems and conducts periodic security audits. We never access data not explicitly shared by the client.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Getting started</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I start working with Fenice?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The process is in 5 steps: <strong>Analysis → Strategy → Build → Launch → Optimise</strong>.</p>
+            <p>It starts with a conversation: tell us about your business, the processes you want to automate and the goals to achieve. We define the plan together, configure the agents and launch the system. We reply within 24 hours of the first request.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it take to see the first results?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>It depends on project complexity. Simple automations (forms, emails, workflows) are operational within a few days. More complex systems (multi-channel agents, client dashboards, automated lead gen) require 2-4 weeks of configuration and testing.</p>
+            <p>Every project has clear KPIs and dedicated dashboards — you always know where we are and what the agents are producing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I stop or modify the service mid-way?
+          <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Yes. The service is flexible: you can add or remove agents, change objectives, modify flows or temporarily suspend. No lock-in. The data and content created always remain yours in your Google Drive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta">
+      <h2>Didn't find your answer?</h2>
+      <p>Write to us directly. We'll reply within 24 hours with everything you need to know.</p>
+      <a href="index.html#contatti" class="btn-gold">
+        Contact us
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── Footer ────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="fenice-logo-white.png" alt="Fenice" class="logo-img">
+          <div class="logo-divider"></div>
+          <div class="logo-text">
+            <span class="logo-name">Fenice</span>
+            <span class="logo-sub">Digital Agency</span>
+          </div>
+        </a>
+        <p><span lang-it>Una digital agency AI che costruisce e gestisce agenti intelligenti per aziende che vogliono crescere.</span><span lang-en>An AI digital agency that builds and manages intelligent agents for companies that want to grow.</span></p>
+        <a href="mailto:info@fenice.digital" class="footer-email">info@fenice.digital</a>
+      </div>
+      <div class="footer-col">
+        <h4><span lang-it>Navigazione</span><span lang-en>Navigation</span></h4>
+        <a href="index.html#chi-siamo"><span lang-it>Chi siamo</span><span lang-en>About</span></a>
+        <a href="index.html#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <a href="index.html#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
+        <a href="index.html#clienti"><span lang-it>Clienti</span><span lang-en>Clients</span></a>
+      </div>
+      <div class="footer-col">
+        <h4>Fenice</h4>
+        <a href="/privacy">Privacy & Cookie Policy</a>
+        <a href="/faq">F.A.Q.</a>
+        <a href="index.html#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
+        <a href="/hq/login">HQ — Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fenice.Digital — All rights reserved.</span>
+      <span style="color:rgba(255,255,255,0.45)">Built with ❤️ by Fenice</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── Scripts ───────────────────────────────────────── -->
+<script>
+  var currentLang = localStorage.getItem('fenice-lang') || 'it';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-label').forEach(function(el) {
+      el.textContent = lang === 'it' ? 'EN' : 'IT';
+    });
+    localStorage.setItem('fenice-lang', lang);
+    document.title = lang === 'en' ? 'F.A.Q. — Fenice' : 'F.A.Q. — Fenice';
+  }
+  function toggleLang() { applyLang(currentLang === 'it' ? 'en' : 'it'); }
+  applyLang(currentLang);
+
+  /* ── Header scroll ───────────────────────────────── */
+  var hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', function() {
+    hdr.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ── Mobile menu ─────────────────────────────────── */
+  function setMenuIcon(open) {
+    document.getElementById('hamburger-icon-bars').style.display = open ? 'none' : 'block';
+    document.getElementById('hamburger-icon-x').style.display = open ? 'block' : 'none';
+  }
+  var menuScrollStart = 0;
+  function toggleMenu() {
+    var links = document.getElementById('nav-links');
+    var isOpen = links.classList.toggle('open');
+    setMenuIcon(isOpen);
+    if (isOpen) { menuScrollStart = window.scrollY; }
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    setMenuIcon(false);
+  }
+  window.addEventListener('scroll', function() {
+    var links = document.getElementById('nav-links');
+    if (links && links.classList.contains('open')) {
+      var menuH = links.scrollHeight || 280;
+      if (Math.abs(window.scrollY - menuScrollStart) > Math.max(menuH * 0.5, 80)) { closeMenu(); }
+    }
+  }, { passive: true });
+  document.querySelectorAll('#nav-links > a').forEach(function(a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  /* ── FAQ Accordion ───────────────────────────────── */
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var answer = item.querySelector('.faq-answer');
+    var isOpen = btn.classList.contains('open');
+
+    /* Close all in same category */
+    var category = item.parentElement;
+    category.querySelectorAll('.faq-question.open').forEach(function(q) {
+      q.classList.remove('open');
+      q.parentElement.querySelector('.faq-answer').classList.remove('open');
+    });
+
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
