@@ -1058,6 +1058,384 @@
     @media (max-width: 375px) {
       .agent-card { flex-basis: 100%; }
     }
+
+  /* ═══════════════════════════════════════════
+     DASHBOARD TEASER — Fase 23
+     ═══════════════════════════════════════════ */
+
+  /* Gradient fade divs that blend the teaser into the cream page */
+  .dash-fade-top {
+    height: 80px;
+    background: linear-gradient(to bottom, #faf8f4, #0c3d5c);
+    margin: 0;
+    padding: 0;
+  }
+  .dash-fade-bottom {
+    height: 80px;
+    background: linear-gradient(to bottom, #062840, #faf8f4);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Main section */
+  #dashboard-teaser {
+    background: linear-gradient(160deg, #0c4a6e 0%, #083555 55%, #062840 100%);
+    color: #faf8f4;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #dashboard-teaser::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,149,106,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Eyebrow + headings */
+  .dt-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #b8956a;
+    margin-bottom: 12px;
+  }
+  .dt-h2 {
+    font-family: Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dt-sub {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  /* Stats row */
+  .dt-stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .dt-stat {
+    padding: 0 28px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .dt-stat:last-child { border-right: none; }
+  .dt-stat-num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #b8956a;
+    line-height: 1;
+    display: block;
+  }
+  .dt-stat-lbl {
+    font-size: 10px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 3px;
+    display: block;
+  }
+
+  /* Browser window */
+  .dt-window {
+    background: rgba(6, 30, 46, 0.9);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    max-width: 720px;
+    margin: 0 auto 32px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .dt-titlebar {
+    background: rgba(255,255,255,0.04);
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .dt-dots { display: flex; gap: 5px; }
+  .dt-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dt-lock {
+    font-size: 10px;
+    opacity: 0.35;
+    margin-left: 4px;
+  }
+  .dt-url {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 10px;
+    opacity: 0.45;
+    font-family: monospace;
+    text-align: left;
+  }
+
+  /* Tab bar */
+  .dt-tabs {
+    display: flex;
+    gap: 2px;
+    padding: 8px 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .dt-tabs::-webkit-scrollbar { display: none; }
+  .dt-tab {
+    padding: 5px 13px;
+    border-radius: 5px 5px 0 0;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: color 0.2s, background 0.2s;
+  }
+  .dt-tab.dt-active {
+    background: rgba(184,149,106,0.18);
+    color: #b8956a;
+    font-weight: 600;
+  }
+
+  /* Content panes */
+  .dt-body { padding: 20px; min-height: 180px; position: relative; }
+  .dt-pane {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .dt-pane.dt-visible {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Panoramica pane */
+  .dkb-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .dkb {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .dkb-label {
+    font-size: 9px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .dkb-val {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #b8956a;
+  }
+  .dpb-wrap { display: flex; flex-direction: column; gap: 8px; }
+  .dpb-item { }
+  .dpb-lbl { font-size: 10px; opacity: 0.5; margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .dpb-track {
+    height: 5px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .dpb-fill {
+    height: 100%;
+    background: #b8956a;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.2s ease;
+  }
+
+  /* Chat pane */
+  .dch-bubbles { display: flex; flex-direction: column; gap: 10px; }
+  .dch-bubble {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .dch-bubble.dch-show { opacity: 1; }
+  .dch-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(184,149,106,0.25);
+    border: 1px solid rgba(184,149,106,0.4);
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8956a;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .dch-msg {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 11px;
+    opacity: 0.85;
+    text-align: left;
+    line-height: 1.4;
+  }
+  .dch-name {
+    font-size: 9px;
+    color: #b8956a;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Lavori pane */
+  .dlv-list { display: flex; flex-direction: column; gap: 8px; }
+  .dlv-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 11px;
+    text-align: left;
+  }
+  .dlv-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  .dlv-done { background: rgba(80,200,120,0.2); color: #50c878; }
+  .dlv-wip  { background: rgba(184,149,106,0.2); color: #b8956a; }
+  .dlv-plan { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); }
+  .dlv-badge {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  /* Report pane */
+  .drk-header { font-size: 11px; opacity: 0.5; margin-bottom: 14px; text-align: left; }
+  .drk-kpi-row { display: flex; gap: 10px; margin-bottom: 16px; }
+  .drk-kpi {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .drk-kpi-lbl { font-size: 8px; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 2px; }
+  .drk-kpi-val { font-size: 0.95rem; font-weight: 700; color: #b8956a; }
+  .drk-chart { display: flex; align-items: flex-end; gap: 3px; height: 60px; }
+  .drk-bar {
+    flex: 1;
+    background: rgba(184,149,106,0.3);
+    border-radius: 2px 2px 0 0;
+    min-height: 4px;
+    transition: height 0.8s ease;
+  }
+  .drk-bar.drk-highlight { background: #b8956a; }
+
+  /* KPI pane */
+  .dkpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dkpi-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: left;
+  }
+  .dkpi-lbl { font-size: 9px; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .dkpi-val { font-size: 1.3rem; font-weight: 700; color: #b8956a; }
+  .dkpi-sub { font-size: 9px; opacity: 0.4; margin-top: 2px; display: block; }
+
+  /* CTA row */
+  .dt-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .dt-cta {
+    display: inline-block;
+    background: #b8956a;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .dt-cta:hover { opacity: 0.88; }
+  .dt-cta-note {
+    font-size: 11px;
+    opacity: 0.4;
+  }
+
+  /* Page transition */
+  @keyframes fenicePageOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  .page-leaving {
+    animation: fenicePageOut 0.3s ease forwards;
+    pointer-events: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #dashboard-teaser { padding: 48px 20px; }
+    .dt-h2 { font-size: 1.4rem; }
+    .dt-stat { padding: 0 16px; }
+    .dt-stat-num { font-size: 1.4rem; }
+    .dkb-row { flex-wrap: wrap; }
+    .drk-kpi-row { flex-wrap: wrap; }
+    .dkpi-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .dt-stats { gap: 8px; }
+    .dt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; width: 100%; }
+    .dt-stat:last-child { border-bottom: none; }
+    .dt-window { margin-left: -4px; margin-right: -4px; border-radius: 6px; }
+    .dt-cta-row { flex-direction: column; }
+  }
   </style>
 <script src="/hq/auth.js"></script>
 </head>
@@ -1110,7 +1488,7 @@
         <a href="#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
         <a href="#clienti">Clienti</a>
         <a href="#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
-        <a href="/hq/login" id="nav-auth-link" class="nav-auth">Login</a>
+        <a href="/login" id="nav-auth-link" class="nav-auth">Login</a>
         <!-- Mobile-only: lang toggle + CTA, shown in menu overlay -->
         <div class="mobile-extras">
           <button class="lang-toggle" onclick="toggleLang()" aria-label="Cambia lingua">
@@ -1377,7 +1755,7 @@
           <li>✓ <span lang-it>Tutti i servizi Crescita</span><span lang-en>All Growth services</span></li>
           <li>✓ <span lang-it>Lead Generation & CRM</span><span lang-en>Lead Generation & CRM</span></li>
           <li>✓ <span lang-it>Automazione flussi di lavoro</span><span lang-en>Workflow Automation</span></li>
-          <li>✓ <span lang-it>Tutti e 14 gli agenti attivi</span><span lang-en>All 14 agents active</span></li>
+          <li>✓ <span lang-it>Tutti e <span class="agent-count">14</span> gli agenti attivi</span><span lang-en>All <span class="agent-count">14</span> agents active</span></li>
         </ul>
         <p style="font-size:0.88rem;color:var(--text-muted)"><span lang-it>Acquisizione, nurturing, contenuto, risposta e reportistica in un unico sistema coordinato. Il team Fenice al completo, sempre operativo per la tua azienda.</span><span lang-en>Acquisition, nurturing, content, response and reporting in one coordinated system. The full Fenice team, always operational for your company.</span></p>
       </div>
@@ -1412,7 +1790,7 @@
     <div class="section-header fade-up">
       <span class="section-label">Team</span>
       <h2><span lang-it>I tuoi agenti, sempre al lavoro</span><span lang-en>Your agents, always working</span></h2>
-      <p><span lang-it>14 agenti specializzati, ciascuno con un ruolo preciso. Lavorano in squadra, si coordinano tra loro e riportano al CEO in ogni momento.</span><span lang-en>14 specialized agents, each with a precise role. They work as a team, coordinate with each other and report to the CEO at every moment.</span></p>
+      <p><span lang-it><span class="agent-count">14</span> agenti specializzati, ciascuno con un ruolo preciso. Lavorano in squadra, si coordinano tra loro e riportano al CEO in ogni momento.</span><span lang-en><span class="agent-count">14</span> specialized agents, each with a precise role. They work as a team, coordinate with each other and report to the CEO at every moment.</span></p>
       <p style="margin-top:12px"><span lang-it>Ogni agente è progettato per un'area specifica — non agenti generici, ma specialisti. Noku coordina il tutto: nessuna attività sfugge, nessuna priorità viene dimenticata.</span><span lang-en>Every agent is designed for a specific area — not generic agents, but specialists. Noku coordinates everything: no activity slips through, no priority is forgotten.</span></p>
     </div>
     <div class="team-hierarchy">
@@ -1595,6 +1973,216 @@
     </div>
   </div>
 </section>
+
+      <div class="dash-fade-top"></div>
+      <section id="dashboard-teaser">
+
+        <p class="dt-eyebrow">
+          <span lang-it>Pannello clienti riservato</span><span lang-en>Reserved client dashboard</span>
+        </p>
+        <h2 class="dt-h2">
+          <span lang-it>Il tuo centro di controllo.<br>Sempre aggiornato, sempre tuo.</span><span lang-en>Your control center.<br>Always updated, always yours.</span>
+        </h2>
+        <p class="dt-sub">
+          <span lang-it>Ogni cliente Fenice accede a un pannello personale con aggiornamenti in tempo reale, chat diretta con l'HQ e report mensili — tutto in un posto.</span><span lang-en>Every Fenice client gets a personal dashboard with real-time updates, direct HQ chat and monthly reports — all in one place.</span>
+        </p>
+
+        <div class="dt-stats">
+          <div class="dt-stat">
+            <span class="dt-stat-num">14</span>
+            <span class="dt-stat-lbl"><span lang-it>Agenti attivi</span><span lang-en>Active agents</span></span>
+          </div>
+          <div class="dt-stat">
+            <span class="dt-stat-num">h24</span>
+            <span class="dt-stat-lbl"><span lang-it>Operativi</span><span lang-en>Always on</span></span>
+          </div>
+          <div class="dt-stat">
+            <span class="dt-stat-num">8</span>
+            <span class="dt-stat-lbl"><span lang-it>Sezioni pannello</span><span lang-en>Dashboard sections</span></span>
+          </div>
+          <div class="dt-stat">
+            <span class="dt-stat-num">&lt;24h</span>
+            <span class="dt-stat-lbl"><span lang-it>Attivazione</span><span lang-en>Activation</span></span>
+          </div>
+        </div>
+
+        <div class="dt-window">
+          <div class="dt-titlebar">
+            <div class="dt-dots">
+              <div class="dt-dot" style="background:#e55;"></div>
+              <div class="dt-dot" style="background:#fa0;"></div>
+              <div class="dt-dot" style="background:#5a5;"></div>
+            </div>
+            <span class="dt-lock">🔒</span>
+            <div class="dt-url" id="dt-url-bar">fenice.digital/tua-azienda</div>
+          </div>
+          <div class="dt-tabs" id="dt-tab-bar">
+            <button class="dt-tab dt-active" data-tab="0"><span lang-it>Panoramica</span><span lang-en>Overview</span></button>
+            <button class="dt-tab" data-tab="1"><span lang-it>Chat HQ</span><span lang-en>HQ Chat</span></button>
+            <button class="dt-tab" data-tab="2"><span lang-it>Lavori</span><span lang-en>Work</span></button>
+            <button class="dt-tab" data-tab="3">Report</button>
+            <button class="dt-tab" data-tab="4">KPI</button>
+          </div>
+          <div class="dt-body">
+
+            <!-- Pane 0: Panoramica -->
+            <div class="dt-pane dt-visible" id="dt-pane-0">
+              <div class="dkb-row">
+                <div class="dkb">
+                  <span class="dkb-label"><span lang-it>Agenti attivi</span><span lang-en>Active agents</span></span>
+                  <span class="dkb-val" id="dkb-agents">14/14</span>
+                </div>
+                <div class="dkb">
+                  <span class="dkb-label"><span lang-it>Workflow mese</span><span lang-en>Month workflows</span></span>
+                  <span class="dkb-val" id="dkb-wf">—</span>
+                </div>
+                <div class="dkb">
+                  <span class="dkb-label">Uptime</span>
+                  <span class="dkb-val" id="dkb-uptime">99.8%</span>
+                </div>
+              </div>
+              <div class="dpb-wrap">
+                <div class="dpb-item">
+                  <div class="dpb-lbl">
+                    <span><span lang-it>Contenuti</span><span lang-en>Content</span></span>
+                    <span id="dpb-pct-0">0%</span>
+                  </div>
+                  <div class="dpb-track"><div class="dpb-fill" id="dpb-fill-0" data-target="82"></div></div>
+                </div>
+                <div class="dpb-item">
+                  <div class="dpb-lbl">
+                    <span>Lead</span>
+                    <span id="dpb-pct-1">0%</span>
+                  </div>
+                  <div class="dpb-track"><div class="dpb-fill" id="dpb-fill-1" data-target="67"></div></div>
+                </div>
+                <div class="dpb-item">
+                  <div class="dpb-lbl">
+                    <span>Email</span>
+                    <span id="dpb-pct-2">0%</span>
+                  </div>
+                  <div class="dpb-track"><div class="dpb-fill" id="dpb-fill-2" data-target="91"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 1: Chat HQ -->
+            <div class="dt-pane" id="dt-pane-1">
+              <div class="dch-bubbles">
+                <div class="dch-bubble dch-show" id="dch-b0">
+                  <div class="dch-avatar">NK</div>
+                  <div class="dch-msg">
+                    <span class="dch-name">Noku</span>
+                    <span lang-it>Report settimanale pronto. Workflow: +18% rispetto alla settimana precedente.</span><span lang-en>Weekly report ready. Workflows: +18% vs previous week.</span>
+                  </div>
+                </div>
+                <div class="dch-bubble dch-show" id="dch-b1">
+                  <div class="dch-avatar">MX</div>
+                  <div class="dch-msg">
+                    <span class="dch-name">Mr. X</span>
+                    <span lang-it>3 post pubblicati oggi su LinkedIn e Instagram. Engagement: +22%.</span><span lang-en>3 posts published today on LinkedIn and Instagram. Engagement: +22%.</span>
+                  </div>
+                </div>
+                <div class="dch-bubble" id="dch-b2">
+                  <div class="dch-avatar">IV</div>
+                  <div class="dch-msg">
+                    <span class="dch-name">Ivy</span>
+                    <span lang-it>Trend digest pronto: 5 opportunità nel tuo settore questa settimana.</span><span lang-en>Trend digest ready: 5 opportunities in your sector this week.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2: Lavori -->
+            <div class="dt-pane" id="dt-pane-2">
+              <div class="dlv-list">
+                <div class="dlv-card">
+                  <div class="dlv-icon dlv-done">✓</div>
+                  <span><span lang-it>Campagna email onboarding</span><span lang-en>Email onboarding campaign</span></span>
+                  <span class="dlv-badge"><span lang-it>Completato</span><span lang-en>Done</span></span>
+                </div>
+                <div class="dlv-card">
+                  <div class="dlv-icon dlv-wip">↻</div>
+                  <span><span lang-it>Calendario contenuti maggio</span><span lang-en>May content calendar</span></span>
+                  <span class="dlv-badge"><span lang-it>In corso</span><span lang-en>In progress</span></span>
+                </div>
+                <div class="dlv-card">
+                  <div class="dlv-icon dlv-wip">↻</div>
+                  <span><span lang-it>Analisi competitor Q2</span><span lang-en>Q2 competitor analysis</span></span>
+                  <span class="dlv-badge"><span lang-it>In corso</span><span lang-en>In progress</span></span>
+                </div>
+                <div class="dlv-card">
+                  <div class="dlv-icon dlv-plan">○</div>
+                  <span><span lang-it>Newsletter giugno</span><span lang-en>June newsletter</span></span>
+                  <span class="dlv-badge"><span lang-it>Pianificato</span><span lang-en>Planned</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 3: Report -->
+            <div class="dt-pane" id="dt-pane-3">
+              <div class="drk-header"><span lang-it>Report — Maggio 2026</span><span lang-en>Report — May 2026</span></div>
+              <div class="drk-kpi-row">
+                <div class="drk-kpi">
+                  <span class="drk-kpi-lbl">Reach</span>
+                  <span class="drk-kpi-val" id="drk-v0">—</span>
+                </div>
+                <div class="drk-kpi">
+                  <span class="drk-kpi-lbl">Lead</span>
+                  <span class="drk-kpi-val" id="drk-v1">—</span>
+                </div>
+                <div class="drk-kpi">
+                  <span class="drk-kpi-lbl">Email CTR</span>
+                  <span class="drk-kpi-val" id="drk-v2">—</span>
+                </div>
+                <div class="drk-kpi">
+                  <span class="drk-kpi-lbl">Workflow</span>
+                  <span class="drk-kpi-val" id="drk-v3">—</span>
+                </div>
+              </div>
+              <div class="drk-chart" id="drk-chart"></div>
+            </div>
+
+            <!-- Pane 4: KPI -->
+            <div class="dt-pane" id="dt-pane-4">
+              <div class="dkpi-grid">
+                <div class="dkpi-card">
+                  <span class="dkpi-lbl"><span lang-it>Reach organico</span><span lang-en>Organic reach</span></span>
+                  <span class="dkpi-val" id="dkpi-v0">—</span>
+                  <span class="dkpi-sub"><span lang-it>visite / mese</span><span lang-en>visits / month</span></span>
+                </div>
+                <div class="dkpi-card">
+                  <span class="dkpi-lbl"><span lang-it>Open rate email</span><span lang-en>Email open rate</span></span>
+                  <span class="dkpi-val" id="dkpi-v1">—</span>
+                  <span class="dkpi-sub"><span lang-it>media campagne</span><span lang-en>campaign avg</span></span>
+                </div>
+                <div class="dkpi-card">
+                  <span class="dkpi-lbl"><span lang-it>Lead qualificati</span><span lang-en>Qualified leads</span></span>
+                  <span class="dkpi-val" id="dkpi-v2">—</span>
+                  <span class="dkpi-sub"><span lang-it>questo mese</span><span lang-en>this month</span></span>
+                </div>
+                <div class="dkpi-card">
+                  <span class="dkpi-lbl"><span lang-it>Workflow eseguiti</span><span lang-en>Workflows run</span></span>
+                  <span class="dkpi-val" id="dkpi-v3">—</span>
+                  <span class="dkpi-sub"><span lang-it>questo mese</span><span lang-en>this month</span></span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.dt-body -->
+        </div><!-- /.dt-window -->
+
+        <div class="dt-cta-row">
+          <a href="#contatti" class="dt-cta">
+            <span lang-it>Lavora con noi →</span><span lang-en>Work with us →</span>
+          </a>
+          <span class="dt-cta-note">
+            <span lang-it>Pannello attivato entro 24h dall'onboarding</span><span lang-en>Dashboard activated within 24h of onboarding</span>
+          </span>
+        </div>
+
+      </section>
+      <div class="dash-fade-bottom"></div>
 
 <!-- ─── Process ───────────────────────────────────────── -->
 <section id="processo">
@@ -1795,7 +2383,7 @@
         <a href="/privacy">Privacy & Cookie Policy</a>
         <a href="/faq">F.A.Q.</a>
         <a href="#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
-        <a href="/hq/login">HQ — Login</a>
+        <a href="/login">Log In</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2277,12 +2865,20 @@
       for (var i = 0; i < count; i++) particles.push(new Particle());
     }
 
+    var heroVisible = false;
+    var heroLoopActive = false;
+
     function animate() {
+      heroLoopActive = true;
       ctx.clearRect(0, 0, W, H);
       scrollVel *= 0.88;
       drawConnections();
       particles.forEach(function(p) { p.update(); p.draw(); });
-      requestAnimationFrame(animate);
+      if (heroVisible) {
+        requestAnimationFrame(animate);
+      } else {
+        heroLoopActive = false;
+      }
     }
 
     window.addEventListener('scroll', function() {
@@ -2309,12 +2905,274 @@
       resizeTimer = setTimeout(init, 120);
     }, { passive: true });
 
+    new IntersectionObserver(function(entries) {
+      heroVisible = entries[0].isIntersecting;
+      if (heroVisible && !heroLoopActive) requestAnimationFrame(animate);
+    }, { threshold: 0 }).observe(canvas);
+
     init();
+    heroVisible = true;
     animate();
+  })();
+
+  /* ═══════════════════════════════════════════
+     DASHBOARD TEASER JS — Fase 23
+     ═══════════════════════════════════════════ */
+  (function() {
+    var DT_URLS = [
+      'fenice.digital/tua-azienda',
+      'fenice.digital/tua-azienda/chat',
+      'fenice.digital/tua-azienda/lavori',
+      'fenice.digital/tua-azienda/report',
+      'fenice.digital/tua-azienda/kpi'
+    ];
+
+    var dtCurrentTab = 0;
+    var dtTimer = null;
+    var dtRunning = false;
+
+    /* ── count-up helper ── */
+    function dtCountUp(el, target, suffix, duration) {
+      if (!el) return;
+      var start = 0;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var pct = Math.min((ts - startTime) / duration, 1);
+        var val = Math.round(pct * target);
+        el.textContent = val + (suffix || '');
+        if (pct < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    /* ── build bar chart (Report pane) — DOM only, no innerHTML ── */
+    function dtBuildChart() {
+      var chart = document.getElementById('drk-chart');
+      if (!chart) return;
+      while (chart.firstChild) chart.removeChild(chart.firstChild);
+      var vals = [38, 42, 55, 60, 48, 70, 65, 80, 72, 58, 75, 82, 68, 90];
+      var max = 90;
+      for (var i = 0; i < vals.length; i++) {
+        var bar = document.createElement('div');
+        bar.className = 'drk-bar' + (i === vals.length - 1 ? ' drk-highlight' : '');
+        bar.style.height = '0px';
+        chart.appendChild(bar);
+        (function(b, v) {
+          var targetH = Math.round((v / max) * 60);
+          var s = null;
+          requestAnimationFrame(function anim(ts) {
+            if (!s) s = ts;
+            var p = Math.min((ts - s) / 800, 1);
+            b.style.height = Math.round(p * targetH) + 'px';
+            if (p < 1) requestAnimationFrame(anim);
+          });
+        })(bar, vals[i]);
+      }
+    }
+
+    /* ── pane reset functions ── */
+    function dtResetPanoramica() {
+      var fills = ['dpb-fill-0', 'dpb-fill-1', 'dpb-fill-2'];
+      for (var i = 0; i < fills.length; i++) {
+        var el = document.getElementById(fills[i]);
+        if (el) el.style.width = '0%';
+        var pct = document.getElementById('dpb-pct-' + i);
+        if (pct) pct.textContent = '0%';
+      }
+      var wf = document.getElementById('dkb-wf');
+      if (wf) wf.textContent = '—';
+    }
+
+    function dtResetChat() {
+      var b2 = document.getElementById('dch-b2');
+      if (b2) b2.classList.remove('dch-show');
+    }
+
+    function dtResetReport() {
+      var ids = ['drk-v0','drk-v1','drk-v2','drk-v3'];
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el) el.textContent = '—';
+      }
+      var chart = document.getElementById('drk-chart');
+      if (chart) while (chart.firstChild) chart.removeChild(chart.firstChild);
+    }
+
+    function dtResetKPI() {
+      var ids = ['dkpi-v0','dkpi-v1','dkpi-v2','dkpi-v3'];
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el) el.textContent = '—';
+      }
+    }
+
+    /* ── pane animation functions ── */
+    function dtAnimPanoramica() {
+      var fills = [
+        {id:'dpb-fill-0', pct:'dpb-pct-0', target: 82},
+        {id:'dpb-fill-1', pct:'dpb-pct-1', target: 67},
+        {id:'dpb-fill-2', pct:'dpb-pct-2', target: 91}
+      ];
+      for (var i = 0; i < fills.length; i++) {
+        (function(cfg) {
+          var el = document.getElementById(cfg.id);
+          var pctEl = document.getElementById(cfg.pct);
+          if (!el) return;
+          var s = null;
+          var dur = 1200;
+          requestAnimationFrame(function anim(ts) {
+            if (!s) s = ts;
+            var p = Math.min((ts - s) / dur, 1);
+            var w = Math.round(p * cfg.target);
+            el.style.width = w + '%';
+            if (pctEl) pctEl.textContent = w + '%';
+            if (p < 1) requestAnimationFrame(anim);
+          });
+        })(fills[i]);
+      }
+      dtCountUp(document.getElementById('dkb-wf'), 284, '', 1000);
+    }
+
+    function dtAnimChat() {
+      setTimeout(function() {
+        var b2 = document.getElementById('dch-b2');
+        if (b2) b2.classList.add('dch-show');
+      }, 1100);
+    }
+
+    function dtAnimReport() {
+      var targets = [
+        {id:'drk-v0', val:18400, suffix:''},
+        {id:'drk-v1', val:34,    suffix:''},
+        {id:'drk-v2', val:28,    suffix:'%'},
+        {id:'drk-v3', val:312,   suffix:''}
+      ];
+      for (var i = 0; i < targets.length; i++) {
+        dtCountUp(document.getElementById(targets[i].id), targets[i].val, targets[i].suffix, 900);
+      }
+      dtBuildChart();
+    }
+
+    function dtAnimKPI() {
+      var targets = [
+        {id:'dkpi-v0', val:24800, suffix:''},
+        {id:'dkpi-v1', val:41,    suffix:'%'},
+        {id:'dkpi-v2', val:18,    suffix:''},
+        {id:'dkpi-v3', val:284,   suffix:''}
+      ];
+      for (var i = 0; i < targets.length; i++) {
+        dtCountUp(document.getElementById(targets[i].id), targets[i].val, targets[i].suffix, 1000);
+      }
+    }
+
+    /* ── switch tab ── */
+    function dtSwitchTab(idx) {
+      var tabs = document.querySelectorAll('.dt-tab');
+      var panes = document.querySelectorAll('.dt-pane');
+      var urlBar = document.getElementById('dt-url-bar');
+
+      /* hide current pane */
+      for (var i = 0; i < panes.length; i++) {
+        panes[i].classList.remove('dt-visible');
+        panes[i].style.display = 'none';
+      }
+      /* reset previous tab animations */
+      if (dtCurrentTab === 0) dtResetPanoramica();
+      if (dtCurrentTab === 1) dtResetChat();
+      if (dtCurrentTab === 3) dtResetReport();
+      if (dtCurrentTab === 4) dtResetKPI();
+
+      dtCurrentTab = idx;
+
+      /* update tab active state */
+      for (var j = 0; j < tabs.length; j++) {
+        tabs[j].classList.remove('dt-active');
+      }
+      if (tabs[idx]) tabs[idx].classList.add('dt-active');
+
+      /* update url bar */
+      if (urlBar) urlBar.textContent = DT_URLS[idx] || DT_URLS[0];
+
+      /* show new pane with forced reflow for opacity transition */
+      var pane = document.getElementById('dt-pane-' + idx);
+      if (pane) {
+        pane.style.display = 'block';
+        void pane.offsetWidth; /* forced reflow */
+        pane.classList.add('dt-visible');
+      }
+
+      /* run animations for new pane */
+      if (idx === 0) dtAnimPanoramica();
+      if (idx === 1) dtAnimChat();
+      if (idx === 3) dtAnimReport();
+      if (idx === 4) dtAnimKPI();
+    }
+
+    /* ── tab click handlers ── */
+    var tabBtns = document.querySelectorAll('.dt-tab');
+    for (var t = 0; t < tabBtns.length; t++) {
+      (function(btn) {
+        btn.addEventListener('click', function() {
+          clearInterval(dtTimer);
+          dtSwitchTab(parseInt(btn.getAttribute('data-tab'), 10));
+          dtTimer = setInterval(dtAutoNext, 5000);
+        });
+      })(tabBtns[t]);
+    }
+
+    /* ── auto advance ── */
+    function dtAutoNext() {
+      dtSwitchTab((dtCurrentTab + 1) % 5);
+    }
+
+    /* ── init: run first pane animations + start loop ── */
+    function dtInit() {
+      dtAnimPanoramica();
+      dtTimer = setInterval(dtAutoNext, 5000);
+      dtRunning = true;
+    }
+
+    /* ── start when section enters viewport ── */
+    if ('IntersectionObserver' in window) {
+      var dtObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !dtRunning) {
+          dtInit();
+        }
+      }, { threshold: 0.2 });
+      var dtSection = document.getElementById('dashboard-teaser');
+      if (dtSection) dtObserver.observe(dtSection);
+    } else {
+      dtInit();
+    }
+
+    /* ── fade-out on HQ link click ── */
+    var hqSelectors = ['#nav-auth-link', 'a[href^="/hq"]', 'a[href^="/login"]'];
+    for (var s = 0; s < hqSelectors.length; s++) {
+      var links = document.querySelectorAll(hqSelectors[s]);
+      for (var l = 0; l < links.length; l++) {
+        (function(a) {
+          a.addEventListener('click', function(e) {
+            var href = a.getAttribute('href');
+            if (!href || href.startsWith('#')) return;
+            e.preventDefault();
+            document.body.classList.add('page-leaving');
+            setTimeout(function() { window.location.href = href; }, 300);
+          });
+        })(links[l]);
+      }
+    }
+
   })();
 </script>
 
 <script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
+  var n = d.agents.filter(function(a){return a.status==='active';}).length;
+  document.querySelectorAll('.agent-count').forEach(function(el){el.textContent=n;});
+}).catch(function(){});
+</script>
 
 </body>
 </html>
