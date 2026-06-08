@@ -97,7 +97,7 @@
       --max-w: 1200px;
     }
 
-    html { scroll-behavior: smooth; font-size: 18px; }
+    html { scroll-behavior: smooth; font-size: 18px; scroll-padding-top: 116px; }
 
     body {
       font-family: var(--font-sans);
@@ -155,7 +155,7 @@
     /* ─── Header & Navigation ───────────────────────── */
     header {
       position: fixed;
-      top: 0;
+      top: 44px;
       left: 0;
       right: 0;
       z-index: 100;
@@ -306,7 +306,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 0 80px;
+      padding: 164px 0 80px;
       overflow: hidden;
     }
 
@@ -973,6 +973,7 @@
     @media (max-width: 768px) {
       html { font-size: 16px; }
       section { padding: 72px 0; }
+      #hero { padding: 150px 0 60px; }
 
       /* Mobile: static background, no canvas animation */
       #hero-canvas { display: none; }
@@ -987,14 +988,14 @@
         display: flex !important;
         flex-direction: column;
         position: fixed;
-        top: 72px;
+        top: 116px;
         left: 0;
         right: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
         background: var(--bg);
-        z-index: 200;
+        z-index: 150;
         border-top: 0px solid var(--border);
       }
 
@@ -1437,21 +1438,34 @@
 
   /* ─── Terminal Strip ───────────────────────────────── */
   #fenice-terminal {
-    background: #083555;
-    border-bottom: 1px solid rgba(184,149,106,0.25);
-    padding: 5px 20px;
+    background: #062c47;
+    border-bottom: 1px solid rgba(184,149,106,0.3);
+    padding: 0 24px;
+    height: 44px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    position: sticky;
+    gap: 12px;
+    position: fixed;
     top: 0;
-    z-index: 1001;
+    left: 0;
+    right: 0;
+    z-index: 300;
     overflow: hidden;
+  }
+  #fenice-terminal .t-prefix {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(184,149,106,0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
   #fenice-terminal .t-cursor {
     color: #b8956a;
     font-family: 'Courier New', monospace;
-    font-size: 14px;
+    font-size: 16px;
     animation: t-blink 1s step-end infinite;
     flex-shrink: 0;
   }
@@ -1459,39 +1473,67 @@
   #fenice-terminal .t-msg {
     flex: 1;
     font-family: 'Courier New', monospace;
-    font-size: 11px;
-    color: #b8956a;
-    letter-spacing: 0.04em;
+    font-size: 13px;
+    color: #c8a47a;
+    letter-spacing: 0.03em;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
     opacity: 1;
     transition: opacity 0.4s ease;
+  }
+  #fenice-terminal .t-agent {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b8956a;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  #fenice-terminal .t-sep {
+    color: rgba(184,149,106,0.3);
+    font-size: 13px;
+    flex-shrink: 0;
   }
   #fenice-terminal .t-badge {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     flex-shrink: 0;
+    border-left: 1px solid rgba(184,149,106,0.2);
+    padding-left: 14px;
+    margin-left: 4px;
   }
   #fenice-terminal .t-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: #4caf50;
-    box-shadow: 0 0 4px #4caf50;
+    box-shadow: 0 0 5px #4caf50;
     animation: t-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
   }
-  @keyframes t-pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 4px #4caf50; } 50% { opacity: 0.6; box-shadow: 0 0 8px #4caf50; } }
+  @keyframes t-pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 5px #4caf50; } 50% { opacity: 0.6; box-shadow: 0 0 10px #4caf50; } }
   #fenice-terminal .t-live {
     font-family: 'Courier New', monospace;
-    font-size: 10px;
-    color: rgba(184,149,106,0.7);
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    color: rgba(184,149,106,0.75);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    #fenice-terminal .t-prefix { display: none; }
+    #fenice-terminal .t-msg { font-size: 11px; }
+    #fenice-terminal .t-live { font-size: 10px; }
+    #fenice-terminal .t-badge { padding-left: 10px; }
   }
 
-  /* ─── Hero Live Pill ───────────────────────────────── */
+  /* ─── Hero Live Pill (hidden — terminal strip covers this) */
   .hero-live-pill {
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: 7px;
     background: rgba(12,74,110,0.12);
@@ -1561,6 +1603,62 @@
   #fenice-audio-btn .audio-wave span:nth-child(5) { height: 6px;  animation-delay: 0.6s; }
   @keyframes wave-bar { 0%, 100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
 
+  /* ─── Live Toggle (header logo area) ──────────────── */
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .live-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .live-toggle .lt-label {
+    font-size: 9px;
+    font-family: 'Courier New', monospace;
+    color: rgba(12,74,110,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.3s;
+  }
+  .lt-track {
+    width: 34px;
+    height: 18px;
+    border-radius: 9px;
+    background: rgba(8,53,85,0.08);
+    border: 1.5px solid rgba(8,53,85,0.18);
+    position: relative;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .lt-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(8,53,85,0.22);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s cubic-bezier(0.4,0,0.2,1), background 0.3s, box-shadow 0.3s;
+  }
+  .live-toggle.on .lt-track {
+    background: rgba(184,149,106,0.12);
+    border-color: rgba(184,149,106,0.45);
+  }
+  .live-toggle.on .lt-circle {
+    left: 18px;
+    background: #b8956a;
+    box-shadow: 0 0 7px rgba(184,149,106,0.5);
+  }
+  .live-toggle.on .lt-label { color: #b8956a; }
+  .live-toggle:hover .lt-track { border-color: rgba(184,149,106,0.3); }
+
   </style>
 <script src="/hq/auth.js"></script>
 </head>
@@ -1575,10 +1673,6 @@
   </svg>
   <span class="audio-wave"><span></span><span></span><span></span><span></span><span></span></span>
 </button>
-<audio id="fenice-audio" loop preload="none">
-  <source src="/fenice-ambient.mp3" type="audio/mpeg">
-</audio>
-
 <!-- ─── Back to Top Button ───────────────────────────── -->
 <button id="back-to-top" onclick="scrollToTop()" aria-label="Torna in cima">
   <svg class="btt-ring-svg" viewBox="0 0 52 52">
@@ -1608,26 +1702,37 @@
 
 <!-- ─── Terminal Strip ───────────────────────────────── -->
 <div id="fenice-terminal">
+  <span class="t-prefix" lang-it>FENICE.LIVE</span>
+  <span class="t-prefix" lang-en>FENICE.LIVE</span>
   <span class="t-cursor">▌</span>
+  <span class="t-agent" id="t-agent"></span>
+  <span class="t-sep" id="t-sep" style="display:none">—</span>
   <span class="t-msg" id="t-msg">Inizializzando agenti Fenice...</span>
   <span class="t-badge">
     <span class="t-dot"></span>
-    <span class="t-live" lang-it>14 agenti attivi</span>
-    <span class="t-live" lang-en>14 agents active</span>
+    <span class="t-live" lang-it>14 agenti · operativi</span>
+    <span class="t-live" lang-en>14 agents · active</span>
   </span>
 </div>
 
 <!-- ─── Header ───────────────────────────────────────── -->
 <header id="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="fenice-logo.png" alt="Fenice" class="logo-img">
-      <div class="logo-divider"></div>
-      <div class="logo-text">
-        <span class="logo-name">Fenice</span>
-        <span class="logo-sub">Digital Agency</span>
+    <div class="logo-group">
+      <div class="live-toggle" id="live-toggle" onclick="feniceToggleLive()" title="Live Dashboard — fenice.digital/live" aria-label="Toggle Live Dashboard">
+        <div class="lt-track"><div class="lt-circle"></div></div>
+        <span class="lt-label" lang-it>Live</span>
+        <span class="lt-label" lang-en>Live</span>
       </div>
-    </a>
+      <a href="/" class="logo">
+        <img src="fenice-logo.png" alt="Fenice" class="logo-img">
+        <div class="logo-divider"></div>
+        <div class="logo-text">
+          <span class="logo-name">Fenice</span>
+          <span class="logo-sub">Digital Agency</span>
+        </div>
+      </a>
+    </div>
 
     <nav>
       <div class="nav-links" id="nav-links">
@@ -3294,40 +3399,42 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
 (function() {
   var msgs = {
     it: [
-      'Noku sta processando il briefing giornaliero...',
-      'Knox ha completato l\'audit di sicurezza notturno ✓',
-      'Ivy ha rilevato 3 trend AI rilevanti per i clienti',
-      'Mr. X sta generando contenuti social per TripInArt...',
-      'Uebi sta ottimizzando le performance SEO di Albanian Odyssey',
-      'Maili ha preparato 2 newsletter in coda per questa settimana',
-      'Anton monitora 47 workflow attivi — tutto stabile ✓',
-      'Lidi ha analizzato 5 nuovi lead dal form di contatto',
-      'Nexus ha sincronizzato i dati con GitHub ✓',
-      'Specter sta verificando la conformità GDPR dei contenuti',
-      'Eura ha generato il report KPI mensile',
-      'Layla sta pianificando la campagna Q3 per i clienti',
-      'Aria ha risposto a 12 richieste di contatto nelle ultime 2h',
-      'SaS sta analizzando i benchmark di performance degli agenti...'
+      { agent: 'NOKU',   text: 'sta processando il briefing giornaliero e coordinando i cluster...' },
+      { agent: 'KNOX',   text: 'ha completato l\'audit di sicurezza notturno — 0 anomalie rilevate ✓' },
+      { agent: 'IVY',    text: 'ha rilevato 3 trend AI rilevanti per i clienti questa settimana' },
+      { agent: 'MR. X',  text: 'sta generando contenuti social schedulati per la settimana corrente...' },
+      { agent: 'UEBI',   text: 'sta ottimizzando le performance SEO — +18% visibilità organica questo mese' },
+      { agent: 'MAILI',  text: 'ha preparato 2 newsletter in coda — tasso apertura atteso 38%' },
+      { agent: 'ANTON',  text: 'monitora 47 workflow attivi — tutto stabile, uptime 99.8% ✓' },
+      { agent: 'LIDI',   text: 'ha analizzato 5 nuovi lead dal form di contatto — 2 qualificati ✓' },
+      { agent: 'NEXUS',  text: 'ha sincronizzato i dati con GitHub e verificato i deployment ✓' },
+      { agent: 'SPECTER',text: 'ha verificato la conformità GDPR dei contenuti pubblicati questa settimana' },
+      { agent: 'EURA',   text: 'ha generato il report KPI mensile — margine operativo +4.2%' },
+      { agent: 'LAYLA',  text: 'sta pianificando la campagna Q3 — 3 canali attivi, budget ottimizzato' },
+      { agent: 'ARIA',   text: 'ha gestito 12 richieste di contatto nelle ultime 2h — tempo risposta 8s' },
+      { agent: 'SaS',    text: 'sta analizzando i benchmark degli agenti — proposta ottimizzazione in coda' }
     ],
     en: [
-      'Noku is processing the daily briefing...',
-      'Knox completed the nightly security audit ✓',
-      'Ivy detected 3 AI trends relevant to clients',
-      'Mr. X is generating social content for TripInArt...',
-      'Uebi is optimizing SEO performance for Albanian Odyssey',
-      'Maili has prepared 2 newsletters queued for this week',
-      'Anton monitors 47 active workflows — all stable ✓',
-      'Lidi analyzed 5 new leads from the contact form',
-      'Nexus synced data with GitHub ✓',
-      'Specter is verifying GDPR compliance for content',
-      'Eura generated the monthly KPI report',
-      'Layla is planning the Q3 campaign for clients',
-      'Aria responded to 12 contact requests in the last 2h',
-      'SaS is analyzing agent performance benchmarks...'
+      { agent: 'NOKU',   text: 'processing the daily briefing and coordinating the operational clusters...' },
+      { agent: 'KNOX',   text: 'completed the nightly security audit — 0 anomalies detected ✓' },
+      { agent: 'IVY',    text: 'detected 3 relevant AI trends for clients this week' },
+      { agent: 'MR. X',  text: 'generating scheduled social content for the current week...' },
+      { agent: 'UEBI',   text: 'optimizing SEO performance — +18% organic visibility this month' },
+      { agent: 'MAILI',  text: 'prepared 2 queued newsletters — expected open rate 38%' },
+      { agent: 'ANTON',  text: 'monitoring 47 active workflows — all stable, 99.8% uptime ✓' },
+      { agent: 'LIDI',   text: 'analyzed 5 new leads from the contact form — 2 qualified ✓' },
+      { agent: 'NEXUS',  text: 'synced data with GitHub and verified deployments ✓' },
+      { agent: 'SPECTER',text: 'verified GDPR compliance for content published this week' },
+      { agent: 'EURA',   text: 'generated the monthly KPI report — operating margin +4.2%' },
+      { agent: 'LAYLA',  text: 'planning Q3 campaign — 3 active channels, optimized budget' },
+      { agent: 'ARIA',   text: 'handled 12 contact requests in the last 2h — response time 8s' },
+      { agent: 'SaS',    text: 'analyzing agent benchmarks — optimization proposal queued' }
     ]
   };
 
   var el = document.getElementById('t-msg');
+  var agentEl = document.getElementById('t-agent');
+  var sepEl = document.getElementById('t-sep');
   if (!el) return;
 
   function getLang() {
@@ -3339,16 +3446,21 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
   var displayTimer = null;
   var typeTimer = null;
 
-  function typeMsg(text) {
+  function typeMsg(entry) {
     charIdx = 0;
     el.textContent = '';
     el.style.opacity = '1';
+    if (agentEl) {
+      agentEl.textContent = '[' + entry.agent + ']';
+      agentEl.style.opacity = '1';
+    }
+    if (sepEl) sepEl.style.display = 'inline';
     function tick() {
-      if (charIdx < text.length) {
-        el.textContent += text[charIdx++];
-        typeTimer = setTimeout(tick, 32);
+      if (charIdx < entry.text.length) {
+        el.textContent += entry.text[charIdx++];
+        typeTimer = setTimeout(tick, 28);
       } else {
-        displayTimer = setTimeout(nextMsg, 3200);
+        displayTimer = setTimeout(nextMsg, 3400);
       }
     }
     tick();
@@ -3356,41 +3468,138 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
 
   function nextMsg() {
     el.style.opacity = '0';
+    if (agentEl) agentEl.style.opacity = '0';
+    if (sepEl) sepEl.style.display = 'none';
     setTimeout(function() {
       idx = (idx + 1) % msgs.it.length;
       typeMsg(msgs[getLang()][idx]);
-    }, 400);
+    }, 450);
   }
 
   typeMsg(msgs[getLang()][idx]);
 })();
 </script>
 
-<!-- ─── Audio Toggle JS ───────────────────────────────── -->
+<!-- ─── Web Audio Ambient Synth ────────────────────────── -->
 <script>
+var _audioCtx = null;
+var _ambNodes = [];
+var _ambPlaying = false;
+
+function feniceStartAudio() {
+  if (!_audioCtx) {
+    _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (_audioCtx.state === 'suspended') _audioCtx.resume();
+
+  var master = _audioCtx.createGain();
+  master.gain.setValueAtTime(0, _audioCtx.currentTime);
+  master.gain.linearRampToValueAtTime(0.18, _audioCtx.currentTime + 3.5);
+  master.connect(_audioCtx.destination);
+
+  var convolver = _audioCtx.createConvolver();
+  var revLen = _audioCtx.sampleRate * 4;
+  var impulse = _audioCtx.createBuffer(2, revLen, _audioCtx.sampleRate);
+  for (var ch = 0; ch < 2; ch++) {
+    var data = impulse.getChannelData(ch);
+    for (var i = 0; i < revLen; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / revLen, 2.5);
+    }
+  }
+  convolver.buffer = impulse;
+  var revGain = _audioCtx.createGain();
+  revGain.gain.value = 0.55;
+  convolver.connect(revGain);
+  revGain.connect(master);
+
+  var drones = [
+    { freq: 73.42, gain: 0.45 },
+    { freq: 110.00, gain: 0.28 },
+    { freq: 146.83, gain: 0.22 },
+    { freq: 174.61, gain: 0.13 },
+    { freq: 220.00, gain: 0.10 },
+    { freq: 293.66, gain: 0.06 }
+  ];
+
+  var allNodes = [master, convolver, revGain];
+
+  drones.forEach(function(d) {
+    var osc = _audioCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = d.freq;
+    osc.detune.value = (Math.random() - 0.5) * 5;
+
+    var g = _audioCtx.createGain();
+    g.gain.value = d.gain;
+
+    var lfo = _audioCtx.createOscillator();
+    lfo.type = 'sine';
+    lfo.frequency.value = 0.07 + Math.random() * 0.08;
+    var lfoG = _audioCtx.createGain();
+    lfoG.gain.value = d.gain * 0.12;
+    lfo.connect(lfoG);
+    lfoG.connect(g.gain);
+
+    osc.connect(g);
+    g.connect(convolver);
+    g.connect(master);
+    osc.start();
+    lfo.start();
+
+    allNodes.push(osc, g, lfo, lfoG);
+  });
+
+  _ambNodes = allNodes;
+  _ambPlaying = true;
+}
+
+function feniceStopAudio() {
+  if (!_ambPlaying || !_audioCtx) return;
+  var master = _ambNodes[0];
+  if (master && master.gain) {
+    master.gain.linearRampToValueAtTime(0, _audioCtx.currentTime + 1.8);
+    setTimeout(function() {
+      _ambNodes.forEach(function(n) {
+        try { if (n.stop) n.stop(); } catch(e) {}
+        try { if (n.disconnect) n.disconnect(); } catch(e) {}
+      });
+      _ambNodes = [];
+      _ambPlaying = false;
+    }, 1900);
+  }
+}
+
 (function() {
   var btn = document.getElementById('fenice-audio-btn');
-  var audio = document.getElementById('fenice-audio');
-  if (!btn || !audio) return;
-
+  if (!btn) return;
   btn.addEventListener('click', function() {
-    if (audio.paused) {
-      audio.volume = 0;
-      audio.play().then(function() {
-        btn.classList.add('playing');
-        var v = 0;
-        var fade = setInterval(function() {
-          v = Math.min(v + 0.018, 0.18);
-          audio.volume = v;
-          if (v >= 0.18) clearInterval(fade);
-        }, 150);
-      }).catch(function() {});
-    } else {
-      audio.pause();
+    if (_ambPlaying) {
+      feniceStopAudio();
       btn.classList.remove('playing');
+    } else {
+      feniceStartAudio();
+      btn.classList.add('playing');
     }
   });
 })();
+</script>
+
+<!-- ─── Live Toggle JS ─────────────────────────────────── -->
+<script>
+function feniceToggleLive() {
+  var isLive = window.location.pathname.indexOf('/live') === 0;
+  document.body.style.transition = 'opacity 0.28s';
+  document.body.style.opacity = '0';
+  setTimeout(function() {
+    window.location.href = isLive ? ('/?lang=' + _lang) : ('/live?lang=' + _lang);
+  }, 260);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.getElementById('live-toggle');
+  if (!toggle) return;
+  var isLive = window.location.pathname.indexOf('/live') === 0;
+  if (isLive) toggle.classList.add('on');
+});
 </script>
 
 </body>
