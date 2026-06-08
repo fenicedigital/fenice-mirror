@@ -1647,17 +1647,22 @@
     left: 2px;
     transition: left 0.3s cubic-bezier(0.4,0,0.2,1), background 0.3s, box-shadow 0.3s;
   }
+  @keyframes lt-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+    50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+  }
   .live-toggle.on .lt-track {
-    background: rgba(184,149,106,0.12);
-    border-color: rgba(184,149,106,0.45);
+    background: rgba(34,197,94,0.1);
+    border-color: rgba(34,197,94,0.45);
   }
   .live-toggle.on .lt-circle {
     left: 18px;
-    background: #b8956a;
-    box-shadow: 0 0 7px rgba(184,149,106,0.5);
+    background: #22c55e;
+    box-shadow: 0 0 7px rgba(34,197,94,0.5);
+    animation: lt-pulse 1.4s ease-in-out infinite;
   }
-  .live-toggle.on .lt-label { color: #b8956a; }
-  .live-toggle:hover .lt-track { border-color: rgba(184,149,106,0.3); }
+  .live-toggle.on .lt-label { color: #22c55e; }
+  .live-toggle:hover .lt-track { border-color: rgba(34,197,94,0.3); }
 
   </style>
 <script src="/hq/auth.js"></script>
@@ -2634,7 +2639,9 @@
 <!-- ─── Scripts ───────────────────────────────────────── -->
 <script>
   /* ── Language toggle ─────────────────────────────── */
-  var currentLang = localStorage.getItem('fenice-lang') || 'it';
+  // URL param ?lang= wins over localStorage (arriving from /live toggle)
+  var _urlLang = new URLSearchParams(window.location.search).get('lang');
+  var currentLang = (_urlLang === 'it' || _urlLang === 'en') ? _urlLang : (localStorage.getItem('fenice-lang') || 'it');
 
   function applyLang(lang) {
     currentLang = lang;
@@ -2657,7 +2664,9 @@
   }
 
   function toggleLang() {
-    applyLang(currentLang === 'it' ? 'en' : 'it');
+    var next = currentLang === 'it' ? 'en' : 'it';
+    localStorage.setItem('fenice-lang', next);
+    window.location.href = '/?lang=' + next;
   }
 
   applyLang(currentLang);
@@ -3405,7 +3414,7 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
       { agent: 'MR. X',  text: 'sta generando contenuti social schedulati per la settimana corrente...' },
       { agent: 'UEBI',   text: 'sta ottimizzando le performance SEO — +18% visibilità organica questo mese' },
       { agent: 'MAILI',  text: 'ha preparato 2 newsletter in coda — tasso apertura atteso 38%' },
-      { agent: 'ANTON',  text: 'monitora 47 workflow attivi — tutto stabile, uptime 99.8% ✓' },
+      { agent: 'ANTON',  text: 'monitora 88 workflow attivi — tutto stabile, uptime 99.8% ✓' },
       { agent: 'LIDI',   text: 'ha analizzato 5 nuovi lead dal form di contatto — 2 qualificati ✓' },
       { agent: 'NEXUS',  text: 'ha sincronizzato i dati con GitHub e verificato i deployment ✓' },
       { agent: 'SPECTER',text: 'ha verificato la conformità GDPR dei contenuti pubblicati questa settimana' },
@@ -3421,7 +3430,7 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
       { agent: 'MR. X',  text: 'generating scheduled social content for the current week...' },
       { agent: 'UEBI',   text: 'optimizing SEO performance — +18% organic visibility this month' },
       { agent: 'MAILI',  text: 'prepared 2 queued newsletters — expected open rate 38%' },
-      { agent: 'ANTON',  text: 'monitoring 47 active workflows — all stable, 99.8% uptime ✓' },
+      { agent: 'ANTON',  text: 'monitoring 88 active workflows — all stable, 99.8% uptime ✓' },
       { agent: 'LIDI',   text: 'analyzed 5 new leads from the contact form — 2 qualified ✓' },
       { agent: 'NEXUS',  text: 'synced data with GitHub and verified deployments ✓' },
       { agent: 'SPECTER',text: 'verified GDPR compliance for content published this week' },
@@ -3591,7 +3600,7 @@ function feniceToggleLive() {
   document.body.style.transition = 'opacity 0.28s';
   document.body.style.opacity = '0';
   setTimeout(function() {
-    window.location.href = isLive ? ('/?lang=' + _lang) : ('/live?lang=' + _lang);
+    window.location.href = isLive ? ('/?lang=' + currentLang) : ('/live?lang=' + currentLang);
   }, 260);
 }
 document.addEventListener('DOMContentLoaded', function() {
