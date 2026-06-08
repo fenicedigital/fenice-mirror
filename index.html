@@ -1434,10 +1434,150 @@
     .dt-window { margin-left: -4px; margin-right: -4px; border-radius: 6px; }
     .dt-cta-row { flex-direction: column; }
   }
+
+  /* ─── Terminal Strip ───────────────────────────────── */
+  #fenice-terminal {
+    background: #083555;
+    border-bottom: 1px solid rgba(184,149,106,0.25);
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    overflow: hidden;
+  }
+  #fenice-terminal .t-cursor {
+    color: #b8956a;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    animation: t-blink 1s step-end infinite;
+    flex-shrink: 0;
+  }
+  @keyframes t-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  #fenice-terminal .t-msg {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #b8956a;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  #fenice-terminal .t-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  #fenice-terminal .t-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4caf50;
+    box-shadow: 0 0 4px #4caf50;
+    animation: t-pulse 2s ease-in-out infinite;
+  }
+  @keyframes t-pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 4px #4caf50; } 50% { opacity: 0.6; box-shadow: 0 0 8px #4caf50; } }
+  #fenice-terminal .t-live {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: rgba(184,149,106,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Hero Live Pill ───────────────────────────────── */
+  .hero-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(12,74,110,0.12);
+    border: 1px solid rgba(184,149,106,0.35);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    color: var(--gold, #b8956a);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+  .hero-live-pill .pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4caf50;
+    box-shadow: 0 0 5px #4caf50;
+    animation: t-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  /* ─── Audio Toggle ─────────────────────────────────── */
+  #fenice-audio-btn {
+    position: fixed;
+    bottom: 88px;
+    right: 20px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #083555;
+    border: 1px solid rgba(184,149,106,0.5);
+    color: #b8956a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 0;
+  }
+  #fenice-audio-btn:hover {
+    border-color: #b8956a;
+    box-shadow: 0 0 8px rgba(184,149,106,0.3);
+  }
+  #fenice-audio-btn.playing {
+    border-color: #b8956a;
+    box-shadow: 0 0 12px rgba(184,149,106,0.4), 0 0 24px rgba(184,149,106,0.15);
+    animation: audio-glow 2s ease-in-out infinite;
+  }
+  @keyframes audio-glow { 0%, 100% { box-shadow: 0 0 8px rgba(184,149,106,0.4); } 50% { box-shadow: 0 0 18px rgba(184,149,106,0.6); } }
+  #fenice-audio-btn .audio-icon { display: block; }
+  #fenice-audio-btn.playing .audio-icon { display: none; }
+  #fenice-audio-btn .audio-wave { display: none; align-items: flex-end; gap: 2px; height: 18px; }
+  #fenice-audio-btn.playing .audio-wave { display: flex; }
+  #fenice-audio-btn .audio-wave span {
+    display: block;
+    width: 3px;
+    background: #b8956a;
+    border-radius: 2px;
+    animation: wave-bar 0.9s ease-in-out infinite;
+  }
+  #fenice-audio-btn .audio-wave span:nth-child(1) { height: 8px;  animation-delay: 0s; }
+  #fenice-audio-btn .audio-wave span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+  #fenice-audio-btn .audio-wave span:nth-child(3) { height: 18px; animation-delay: 0.3s; }
+  #fenice-audio-btn .audio-wave span:nth-child(4) { height: 12px; animation-delay: 0.45s; }
+  #fenice-audio-btn .audio-wave span:nth-child(5) { height: 6px;  animation-delay: 0.6s; }
+  @keyframes wave-bar { 0%, 100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
+
   </style>
 <script src="/hq/auth.js"></script>
 </head>
 <body>
+
+<!-- ─── Audio Ambient Toggle ─────────────────────────── -->
+<button id="fenice-audio-btn" aria-label="Musica ambiente Fenice" title="Musica ambiente">
+  <svg class="audio-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="18" cy="16" r="3"/>
+  </svg>
+  <span class="audio-wave"><span></span><span></span><span></span><span></span><span></span></span>
+</button>
+<audio id="fenice-audio" loop preload="none">
+  <source src="/fenice-ambient.mp3" type="audio/mpeg">
+</audio>
 
 <!-- ─── Back to Top Button ───────────────────────────── -->
 <button id="back-to-top" onclick="scrollToTop()" aria-label="Torna in cima">
@@ -1464,6 +1604,17 @@
       <span lang-it>Accetta</span><span lang-en>Accept</span>
     </button>
   </div>
+</div>
+
+<!-- ─── Terminal Strip ───────────────────────────────── -->
+<div id="fenice-terminal">
+  <span class="t-cursor">▌</span>
+  <span class="t-msg" id="t-msg">Inizializzando agenti Fenice...</span>
+  <span class="t-badge">
+    <span class="t-dot"></span>
+    <span class="t-live" lang-it>14 agenti attivi</span>
+    <span class="t-live" lang-en>14 agents active</span>
+  </span>
 </div>
 
 <!-- ─── Header ───────────────────────────────────────── -->
@@ -1518,6 +1669,11 @@
   <canvas id="hero-canvas"></canvas>
   <div class="container">
     <div class="hero-content fade-up">
+      <div class="hero-live-pill">
+        <span class="pill-dot"></span>
+        <span lang-it>14 agenti · h24 · operativi ora</span>
+        <span lang-en>14 agents · 24/7 · active now</span>
+      </div>
       <span class="hero-eyebrow">
         <span lang-it>Consulenza Digitale AI</span>
         <span lang-en>AI Digital Consulting</span>
@@ -3131,6 +3287,110 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
   var n = d.agents.filter(function(a){return a.status==='active';}).length;
   document.querySelectorAll('.agent-count').forEach(function(el){el.textContent=n;});
 }).catch(function(){});
+</script>
+
+<!-- ─── Terminal Strip JS ─────────────────────────────── -->
+<script>
+(function() {
+  var msgs = {
+    it: [
+      'Noku sta processando il briefing giornaliero...',
+      'Knox ha completato l\'audit di sicurezza notturno ✓',
+      'Ivy ha rilevato 3 trend AI rilevanti per i clienti',
+      'Mr. X sta generando contenuti social per TripInArt...',
+      'Uebi sta ottimizzando le performance SEO di Albanian Odyssey',
+      'Maili ha preparato 2 newsletter in coda per questa settimana',
+      'Anton monitora 47 workflow attivi — tutto stabile ✓',
+      'Lidi ha analizzato 5 nuovi lead dal form di contatto',
+      'Nexus ha sincronizzato i dati con GitHub ✓',
+      'Specter sta verificando la conformità GDPR dei contenuti',
+      'Eura ha generato il report KPI mensile',
+      'Layla sta pianificando la campagna Q3 per i clienti',
+      'Aria ha risposto a 12 richieste di contatto nelle ultime 2h',
+      'SaS sta analizzando i benchmark di performance degli agenti...'
+    ],
+    en: [
+      'Noku is processing the daily briefing...',
+      'Knox completed the nightly security audit ✓',
+      'Ivy detected 3 AI trends relevant to clients',
+      'Mr. X is generating social content for TripInArt...',
+      'Uebi is optimizing SEO performance for Albanian Odyssey',
+      'Maili has prepared 2 newsletters queued for this week',
+      'Anton monitors 47 active workflows — all stable ✓',
+      'Lidi analyzed 5 new leads from the contact form',
+      'Nexus synced data with GitHub ✓',
+      'Specter is verifying GDPR compliance for content',
+      'Eura generated the monthly KPI report',
+      'Layla is planning the Q3 campaign for clients',
+      'Aria responded to 12 contact requests in the last 2h',
+      'SaS is analyzing agent performance benchmarks...'
+    ]
+  };
+
+  var el = document.getElementById('t-msg');
+  if (!el) return;
+
+  function getLang() {
+    return document.body.classList.contains('lang-en') ? 'en' : 'it';
+  }
+
+  var idx = Math.floor(Math.random() * msgs.it.length);
+  var charIdx = 0;
+  var displayTimer = null;
+  var typeTimer = null;
+
+  function typeMsg(text) {
+    charIdx = 0;
+    el.textContent = '';
+    el.style.opacity = '1';
+    function tick() {
+      if (charIdx < text.length) {
+        el.textContent += text[charIdx++];
+        typeTimer = setTimeout(tick, 32);
+      } else {
+        displayTimer = setTimeout(nextMsg, 3200);
+      }
+    }
+    tick();
+  }
+
+  function nextMsg() {
+    el.style.opacity = '0';
+    setTimeout(function() {
+      idx = (idx + 1) % msgs.it.length;
+      typeMsg(msgs[getLang()][idx]);
+    }, 400);
+  }
+
+  typeMsg(msgs[getLang()][idx]);
+})();
+</script>
+
+<!-- ─── Audio Toggle JS ───────────────────────────────── -->
+<script>
+(function() {
+  var btn = document.getElementById('fenice-audio-btn');
+  var audio = document.getElementById('fenice-audio');
+  if (!btn || !audio) return;
+
+  btn.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.volume = 0;
+      audio.play().then(function() {
+        btn.classList.add('playing');
+        var v = 0;
+        var fade = setInterval(function() {
+          v = Math.min(v + 0.018, 0.18);
+          audio.volume = v;
+          if (v >= 0.18) clearInterval(fade);
+        }, 150);
+      }).catch(function() {});
+    } else {
+      audio.pause();
+      btn.classList.remove('playing');
+    }
+  });
+})();
 </script>
 
 </body>
