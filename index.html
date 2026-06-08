@@ -1556,52 +1556,6 @@
     flex-shrink: 0;
   }
 
-  /* ─── Audio Toggle ─────────────────────────────────── */
-  #fenice-audio-btn {
-    position: fixed;
-    bottom: 88px;
-    right: 20px;
-    z-index: 999;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #083555;
-    border: 1px solid rgba(184,149,106,0.5);
-    color: #b8956a;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    padding: 0;
-  }
-  #fenice-audio-btn:hover {
-    border-color: #b8956a;
-    box-shadow: 0 0 8px rgba(184,149,106,0.3);
-  }
-  #fenice-audio-btn.playing {
-    border-color: #b8956a;
-    box-shadow: 0 0 12px rgba(184,149,106,0.4), 0 0 24px rgba(184,149,106,0.15);
-    animation: audio-glow 2s ease-in-out infinite;
-  }
-  @keyframes audio-glow { 0%, 100% { box-shadow: 0 0 8px rgba(184,149,106,0.4); } 50% { box-shadow: 0 0 18px rgba(184,149,106,0.6); } }
-  #fenice-audio-btn .audio-icon { display: block; }
-  #fenice-audio-btn.playing .audio-icon { display: none; }
-  #fenice-audio-btn .audio-wave { display: none; align-items: flex-end; gap: 2px; height: 18px; }
-  #fenice-audio-btn.playing .audio-wave { display: flex; }
-  #fenice-audio-btn .audio-wave span {
-    display: block;
-    width: 3px;
-    background: #b8956a;
-    border-radius: 2px;
-    animation: wave-bar 0.9s ease-in-out infinite;
-  }
-  #fenice-audio-btn .audio-wave span:nth-child(1) { height: 8px;  animation-delay: 0s; }
-  #fenice-audio-btn .audio-wave span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
-  #fenice-audio-btn .audio-wave span:nth-child(3) { height: 18px; animation-delay: 0.3s; }
-  #fenice-audio-btn .audio-wave span:nth-child(4) { height: 12px; animation-delay: 0.45s; }
-  #fenice-audio-btn .audio-wave span:nth-child(5) { height: 6px;  animation-delay: 0.6s; }
-  @keyframes wave-bar { 0%, 100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
 
   /* ─── Live Toggle (header logo area) ──────────────── */
   .logo-group {
@@ -1669,15 +1623,6 @@
 </head>
 <body>
 
-<!-- ─── Audio Ambient Toggle ─────────────────────────── -->
-<button id="fenice-audio-btn" aria-label="Musica ambiente Fenice" title="Musica ambiente">
-  <svg class="audio-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 18V5l12-2v13"/>
-    <circle cx="6" cy="18" r="3"/>
-    <circle cx="18" cy="16" r="3"/>
-  </svg>
-  <span class="audio-wave"><span></span><span></span><span></span><span></span><span></span></span>
-</button>
 <!-- ─── Back to Top Button ───────────────────────────── -->
 <button id="back-to-top" onclick="scrollToTop()" aria-label="Torna in cima">
   <svg class="btt-ring-svg" viewBox="0 0 52 52">
@@ -3486,110 +3431,6 @@ fetch('/hq/agents.json').then(function(r){return r.json();}).then(function(d){
   }
 
   typeMsg(msgs[getLang()][idx]);
-})();
-</script>
-
-<!-- ─── Web Audio Ambient Synth ────────────────────────── -->
-<script>
-var _audioCtx = null;
-var _ambNodes = [];
-var _ambPlaying = false;
-
-function feniceStartAudio() {
-  if (!_audioCtx) {
-    _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (_audioCtx.state === 'suspended') _audioCtx.resume();
-
-  var master = _audioCtx.createGain();
-  master.gain.setValueAtTime(0, _audioCtx.currentTime);
-  master.gain.linearRampToValueAtTime(0.18, _audioCtx.currentTime + 3.5);
-  master.connect(_audioCtx.destination);
-
-  var convolver = _audioCtx.createConvolver();
-  var revLen = _audioCtx.sampleRate * 4;
-  var impulse = _audioCtx.createBuffer(2, revLen, _audioCtx.sampleRate);
-  for (var ch = 0; ch < 2; ch++) {
-    var data = impulse.getChannelData(ch);
-    for (var i = 0; i < revLen; i++) {
-      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / revLen, 2.5);
-    }
-  }
-  convolver.buffer = impulse;
-  var revGain = _audioCtx.createGain();
-  revGain.gain.value = 0.55;
-  convolver.connect(revGain);
-  revGain.connect(master);
-
-  var drones = [
-    { freq: 73.42, gain: 0.45 },
-    { freq: 110.00, gain: 0.28 },
-    { freq: 146.83, gain: 0.22 },
-    { freq: 174.61, gain: 0.13 },
-    { freq: 220.00, gain: 0.10 },
-    { freq: 293.66, gain: 0.06 }
-  ];
-
-  var allNodes = [master, convolver, revGain];
-
-  drones.forEach(function(d) {
-    var osc = _audioCtx.createOscillator();
-    osc.type = 'sine';
-    osc.frequency.value = d.freq;
-    osc.detune.value = (Math.random() - 0.5) * 5;
-
-    var g = _audioCtx.createGain();
-    g.gain.value = d.gain;
-
-    var lfo = _audioCtx.createOscillator();
-    lfo.type = 'sine';
-    lfo.frequency.value = 0.07 + Math.random() * 0.08;
-    var lfoG = _audioCtx.createGain();
-    lfoG.gain.value = d.gain * 0.12;
-    lfo.connect(lfoG);
-    lfoG.connect(g.gain);
-
-    osc.connect(g);
-    g.connect(convolver);
-    g.connect(master);
-    osc.start();
-    lfo.start();
-
-    allNodes.push(osc, g, lfo, lfoG);
-  });
-
-  _ambNodes = allNodes;
-  _ambPlaying = true;
-}
-
-function feniceStopAudio() {
-  if (!_ambPlaying || !_audioCtx) return;
-  var master = _ambNodes[0];
-  if (master && master.gain) {
-    master.gain.linearRampToValueAtTime(0, _audioCtx.currentTime + 1.8);
-    setTimeout(function() {
-      _ambNodes.forEach(function(n) {
-        try { if (n.stop) n.stop(); } catch(e) {}
-        try { if (n.disconnect) n.disconnect(); } catch(e) {}
-      });
-      _ambNodes = [];
-      _ambPlaying = false;
-    }, 1900);
-  }
-}
-
-(function() {
-  var btn = document.getElementById('fenice-audio-btn');
-  if (!btn) return;
-  btn.addEventListener('click', function() {
-    if (_ambPlaying) {
-      feniceStopAudio();
-      btn.classList.remove('playing');
-    } else {
-      feniceStartAudio();
-      btn.classList.add('playing');
-    }
-  });
 })();
 </script>
 
