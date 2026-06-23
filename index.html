@@ -300,6 +300,20 @@
       padding: 8px;
     }
 
+    /* ─── Settori dropdown ──────────────────────────── */
+    .nav-dropdown { position: relative; display: inline-flex; }
+    .nav-dd-trigger { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; color: var(--text-muted); padding: 8px 14px; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
+    .nav-dropdown.open .nav-dd-trigger, .nav-dd-trigger:hover { color: var(--navy); background: rgba(12,74,110,0.06); }
+    .dd-chev { transition: transform 0.25s; }
+    .nav-dropdown.open .dd-chev { transform: rotate(180deg); }
+    .nav-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 210px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 8px; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 200; }
+    .nav-dropdown.open .nav-dd-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-dd-menu .dd-item { display: block; padding: 10px 14px; border-radius: var(--radius); font-size: 0.9rem; color: var(--text); text-decoration: none; }
+    .nav-dd-menu a.dd-item:hover { background: var(--bg-alt); color: var(--navy); }
+    .nav-dd-menu a.dd-item.active { color: var(--navy); font-weight: 600; }
+    .nav-dd-menu .dd-soon { color: var(--text-muted); cursor: default; }
+    .nav-dd-menu .dd-soon em { font-style: normal; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-left: 6px; }
+
     /* ─── Hero ──────────────────────────────────────── */
     #hero {
       position: relative;
@@ -904,6 +918,7 @@
 
     /* ─── Mobile extras (hidden on desktop, shown in mobile dropdown) ── */
     .mobile-extras { display: none; }
+    .mobile-only-link { display: none; }
 
     /* ─── Back to Top Button ────────────────────── */
     #back-to-top {
@@ -959,6 +974,92 @@
       height: 18px;
       color: var(--navy);
       flex-shrink: 0;
+    }
+
+    /* ─── Comparison Table ──────────────────────────── */
+    .cmp-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .cmp-head, .cmp-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; }
+    .cmp-row { border-top: 1px solid var(--border); }
+    .cmp-cell { padding: 16px 20px; font-size: 0.92rem; line-height: 1.5; }
+    .cmp-head .cmp-cell {
+      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      background: var(--bg-alt);
+    }
+    .cmp-feature { color: var(--text-muted); font-weight: 600; }
+    .cmp-trad { color: var(--text-muted); }
+    .cmp-fenice { color: var(--navy); font-weight: 600; background: rgba(12,74,110,0.04); }
+    .cmp-head .cmp-fenice { color: var(--navy); background: rgba(12,74,110,0.08); }
+    @media (max-width: 640px) {
+      .cmp-head { display: none; }
+      .cmp-row { grid-template-columns: 1fr 1fr; }
+      .cmp-feature {
+        grid-column: 1 / -1;
+        background: var(--bg-alt);
+        font-weight: 700;
+        color: var(--navy);
+        padding-bottom: 8px;
+      }
+      .cmp-cell { padding: 12px 16px; }
+      .cmp-trad::before, .cmp-fenice::before {
+        display: block;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+      .cmp-trad::before { content: 'Agenzia'; }
+      .cmp-fenice::before { content: 'Fenice'; }
+    }
+
+    /* ─── Proof Case ────────────────────────────────── */
+    .proof-case { max-width: 880px; margin: 56px auto 0; text-align: center; }
+    .proof-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .proof-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+    .proof-stats { display: flex; justify-content: center; flex-wrap: wrap; }
+    .proof-stat { padding: 0 32px; border-right: 1px solid var(--border); }
+    .proof-stat:last-child { border-right: none; }
+    .proof-num {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      color: var(--navy);
+      display: block;
+      line-height: 1.1;
+    }
+    .proof-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      display: block;
+    }
+    .proof-note { font-size: 0.85rem; color: var(--text-muted); margin: 24px auto 0; max-width: 56ch; }
+    @media (max-width: 640px) {
+      .proof-stats { gap: 24px 0; }
+      .proof-stat { flex-basis: 50%; border-right: none; padding: 0 12px; }
     }
 
     /* ─── Responsive ────────────────────────────────── */
@@ -1021,6 +1122,11 @@
       nav .nav-links > a:active { background: rgba(12,74,110,0.05); }
 
       /* Mobile extras: visible inside dropdown */
+      nav .nav-links > a.mobile-only-link { display: flex !important; }
+      .nav-dropdown { width: 100%; flex-direction: column; }
+      .nav-dd-trigger { width: 100%; justify-content: space-between; font-size: 1.05rem; padding: 18px 24px; border-bottom: 1px solid var(--border); border-radius: 0; }
+      .nav-dd-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0; min-width: 0; background: var(--bg-alt); }
+      .nav-dd-menu .dd-item { padding: 14px 38px; border-bottom: 1px solid var(--border); border-radius: 0; }
       .mobile-extras {
         display: flex !important;
         flex-direction: column;
@@ -1687,11 +1793,18 @@
     <nav>
       <div class="nav-links" id="nav-links">
         <a href="#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <div class="nav-dropdown" id="settori-dd">
+          <button type="button" class="nav-dd-trigger" onclick="toggleSettori(event)">
+            <span lang-it>Settori</span><span lang-en>Sectors</span>
+            <svg class="dd-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dd-menu" id="settori-menu"></div>
+        </div>
         <a href="#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
         <a href="#team">Team</a>
-        <a href="#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
         <a href="#clienti">Clienti</a>
         <a href="#contatti"><span lang-it>Contatti</span><span lang-en>Contact</span></a>
+        <a href="#processo" class="mobile-only-link"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
         <a href="/login" id="nav-auth-link" class="nav-auth">Login</a>
         <!-- Mobile-only: lang toggle + CTA, shown in menu overlay -->
         <div class="mobile-extras">
@@ -1738,12 +1851,12 @@
         <span lang-en>AI creates. AI executes.<br><em>Fenice oversees.</em></span>
       </h1>
       <p class="lead">
-        <span lang-it>Consulenza digitale AI operativa: contenuti, campagne, lead generation e automazioni eseguiti da 14 agenti specializzati, con supervisione strategica Fenice.</span>
-        <span lang-en>Operative digital AI consulting: content, campaigns, lead generation and automations powered by 14 specialized agents, with Fenice's strategic oversight.</span>
+        <span lang-it>Contenuti, campagne, lead generation e automazioni: un'unica piattaforma AI dove 14 agenti specializzati eseguono il lavoro, h24, sotto la supervisione strategica di Fenice.</span>
+        <span lang-en>Content, campaigns, lead generation and automations: a single AI platform where 14 specialized agents do the work, 24/7, under Fenice's strategic oversight.</span>
       </p>
       <p style="font-size:0.95rem;color:var(--text-muted);margin-top:-8px;margin-bottom:8px">
-        <span lang-it>La tua comunicazione digitale, eseguita da agenti AI supervisionati da Fenice.</span>
-        <span lang-en>Your digital communication, executed by AI agents supervised by Fenice.</span>
+        <span lang-it>Un prezzo, tutti gli agenti, l'AI inclusa. Zero costi nascosti.</span>
+        <span lang-en>One price, all the agents, AI included. Zero hidden costs.</span>
       </p>
       <div class="hero-actions">
         <a href="#servizi" class="btn btn-primary">
@@ -1807,7 +1920,7 @@
           <circle cx="24" cy="24" r="5"/>
         </svg>
         <h3><span lang-it>Intelligenza su misura</span><span lang-en>Tailored intelligence</span></h3>
-        <p><span lang-it>Ogni agente è progettato attorno alle esigenze specifiche del tuo business. Scegli il piano con AI inclusa, o porta la tua — i sistemi si adattano, non il contrario.</span><span lang-en>Every agent is designed around your business's specific needs. Choose the plan with AI included, or bring your own — the systems adapt, not the other way around.</span></p>
+        <p><span lang-it>Ogni agente è progettato attorno alle esigenze specifiche del tuo business. L'AI è inclusa nel piano e la gestiamo noi — i sistemi si adattano a te, non il contrario.</span><span lang-en>Every agent is designed around your business's specific needs. The AI is included in the plan and we manage it for you — the systems adapt to you, not the other way around.</span></p>
       </div>
       <div class="pillar fade-up">
         <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1859,7 +1972,7 @@
           <circle cx="22" cy="22" r="2.5" fill="currentColor" stroke="none"/>
         </svg>
         <h3><span lang-it>Automazione & Agenti AI</span><span lang-en>Automation & AI Agents</span></h3>
-        <p><span lang-it>Automatizziamo i processi ripetitivi della tua azienda con agenti AI su misura. Lavoriamo con il nostro Claude AI incluso, oppure integriamo l'AI che già usi — ogni agente ha un ruolo preciso nel tuo flusso, senza effort manuale.</span><span lang-en>We automate your company's repetitive processes with custom AI agents. We work with our included Claude AI, or we integrate the AI you already use — each agent has a precise role in your flow, with no manual effort.</span></p>
+        <p><span lang-it>Automatizziamo i processi ripetitivi della tua azienda con agenti AI su misura. L'intelligenza artificiale è inclusa e la gestiamo noi — ogni agente ha un ruolo preciso nel tuo flusso, senza effort manuale.</span><span lang-en>We automate your company's repetitive processes with custom AI agents. The AI is included and we manage it for you — each agent has a precise role in your flow, with no manual effort.</span></p>
         <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Dalle notifiche automatiche alle pipeline di dati complesse: ogni flusso viene mappato, ottimizzato e monitorato h24.</span><span lang-en>From automated notifications to complex data pipelines: every flow is mapped, optimised and monitored 24/7.</span></p>
       </div>
       <!-- 2 -->
@@ -1921,6 +2034,97 @@
         <p><span lang-it>Aria risponde ai tuoi clienti h24 su chat web e WhatsApp, con la tua voce e il tuo brand. Qualifica i lead in automatico e li passa al team commerciale — senza perdersi nessuna richiesta.</span><span lang-en>Aria responds to your clients 24/7 on web chat and WhatsApp, in your voice and brand. It qualifies leads automatically and hands them to your sales team — never missing a request.</span></p>
         <p style="margin-top:10px;font-size:0.88rem;color:var(--text-muted)"><span lang-it>Aria conosce il tuo brand, i tuoi prodotti e il tuo tono di voce. Risponde come parte del tuo team — perché lo è, davvero.</span><span lang-en>Aria knows your brand, your products and your tone of voice. It responds as part of your team — because it truly is.</span></p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Trasparenza Prezzo ───────────────────────────── -->
+<section id="trasparenza" style="background:linear-gradient(160deg,#0c4a6e 0%,#083555 60%,#062840 100%);color:#faf8f4">
+  <div class="container" style="text-align:center">
+    <span class="section-label" style="color:#b8956a;display:block;margin-bottom:16px"><span lang-it>Trasparenza</span><span lang-en>Transparency</span></span>
+    <h2 style="color:#faf8f4;max-width:20ch;margin:0 auto 20px">
+      <span lang-it>Un prezzo. Tutti gli agenti. Zero costi AI nascosti.</span>
+      <span lang-en>One price. All the agents. Zero hidden AI costs.</span>
+    </h2>
+    <p style="color:rgba(255,255,255,0.82);max-width:62ch;margin:0 auto;font-size:1.05rem">
+      <span lang-it>Il costo dell'intelligenza artificiale è già incluso. Niente licenze separate, niente API da gestire, nessuna sorpresa a fine mese. Un solo accordo: 14 agenti, tutti i servizi, l'AI la gestiamo noi.</span>
+      <span lang-en>The cost of AI is already included. No separate licenses, no API to manage, no end-of-month surprises. One agreement: 14 agents, all services, the AI managed by us.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ─── Confronto ────────────────────────────────────── -->
+<section id="confronto">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center">
+      <span class="section-label"><span lang-it>Confronto</span><span lang-en>Comparison</span></span>
+      <h2><span lang-it>Fenice vs agenzia tradizionale</span><span lang-en>Fenice vs a traditional agency</span></h2>
+      <p style="margin-left:auto;margin-right:auto"><span lang-it>Stesso obiettivo, struttura diversa. Ecco cosa cambia, in concreto.</span><span lang-en>Same goal, different structure. Here's what changes, concretely.</span></p>
+    </div>
+    <div class="cmp-wrap fade-up">
+      <div class="cmp-head">
+        <div class="cmp-cell cmp-feature"></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>Agenzia tradizionale</span><span lang-en>Traditional agency</span></div>
+        <div class="cmp-cell cmp-fenice">Fenice</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Orari</span><span lang-en>Hours</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>9–18, lun–ven</span><span lang-en>9–6, Mon–Fri</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>h24, 7/7</span><span lang-en>24/7</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Team</span><span lang-en>Team</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>assumi e gestisci persone</span><span lang-en>hire and manage people</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>14 agenti inclusi</span><span lang-en>14 agents included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Costi AI</span><span lang-en>AI costs</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>a tuo carico</span><span lang-en>on you</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>inclusi</span><span lang-en>included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Tempi di consegna</span><span lang-en>Delivery time</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>giorni</span><span lang-en>days</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>minuti–ore</span><span lang-en>minutes–hours</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Scalabilità</span><span lang-en>Scaling</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>nuove assunzioni</span><span lang-en>new hires</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>istantanea</span><span lang-en>instant</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-feature"><span lang-it>Stato lavori</span><span lang-en>Work status</span></div>
+        <div class="cmp-cell cmp-trad"><span lang-it>report a richiesta</span><span lang-en>reports on request</span></div>
+        <div class="cmp-cell cmp-fenice"><span lang-it>dashboard live h24</span><span lang-en>live dashboard 24/7</span></div>
+      </div>
+    </div>
+
+    <!-- Proof: caso reale TIA -->
+    <div class="proof-case fade-up">
+      <p class="proof-label"><span lang-it>Caso reale</span><span lang-en>Real case</span></p>
+      <h3 class="proof-title"><span lang-it>TripInArt — già operativo con Fenice</span><span lang-en>TripInArt — already live with Fenice</span></h3>
+      <div class="proof-stats">
+        <div class="proof-stat">
+          <span class="proof-num">h24</span>
+          <span class="proof-lbl"><span lang-it>Assistenza Aria</span><span lang-en>Aria support</span></span>
+        </div>
+        <div class="proof-stat">
+          <span class="proof-num">5</span>
+          <span class="proof-lbl"><span lang-it>Lingue</span><span lang-en>Languages</span></span>
+        </div>
+        <div class="proof-stat">
+          <span class="proof-num">8</span>
+          <span class="proof-lbl"><span lang-it>Agenti attivi</span><span lang-en>Active agents</span></span>
+        </div>
+        <div class="proof-stat">
+          <span class="proof-num">4<span style="font-size:1rem"> <span lang-it>sett.</span><span lang-en>wks</span></span></span>
+          <span class="proof-lbl"><span lang-it>Piano content</span><span lang-en>Content plan</span></span>
+        </div>
+      </div>
+      <p class="proof-note">
+        <span lang-it>Aria risponde ai clienti di TripInArt h24 su tripinartitaly.com, in 5 lingue. Otto agenti Fenice gestiscono contenuti, email e lead in autonomia — sotto supervisione strategica.</span>
+        <span lang-en>Aria responds to TripInArt's clients 24/7 on tripinartitaly.com, in 5 languages. Eight Fenice agents manage content, email and leads autonomously — under strategic oversight.</span>
+      </p>
     </div>
   </div>
 </section>
@@ -2445,9 +2649,9 @@
       </div>
       <!-- 3: VerdeMotions -->
       <div class="client-card">
-        <span class="client-tag"><span lang-it>Mobilità & Turismo</span><span lang-en>Mobility & Tourism</span></span>
+        <span class="client-tag"><span lang-it>Turismo & Smart Hub</span><span lang-en>Tourism & Smart Hub</span></span>
         <h3><a href="https://verdemotions.com" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;text-decoration:none">VerdeMotions</a></h3>
-        <p><span lang-it>Content, lead generation e comunicazione digitale per esperienze turistiche in mobilità elettrica a Roma.</span><span lang-en>Content, lead generation and digital communication for electric vehicle tourist experiences in Rome.</span></p>
+        <p><span lang-it>VerdeMotions Smart Tourism Hub: deposito bagagli smart, accoglienza turistica e servizi digitali sostenibili nel centro di Roma. Esperienze e mobilità elettrica restano offerta complementare.</span><span lang-en>VerdeMotions Smart Tourism Hub: smart luggage storage, tourist reception and sustainable digital services in central Rome. Experiences and electric mobility remain a complementary offering.</span></p>
         <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)"><span lang-it>Un sistema di agenti AI che porta le persone dall'interesse all'esperienza — content, social e follow-up automatizzati.</span><span lang-en>An AI-agent system that takes people from interest to experience — content, social and follow-up automated.</span></p>
       </div>
       <!-- 4: Gadget Tech Italia -->
@@ -2561,6 +2765,7 @@
         <h4><span lang-it>Navigazione</span><span lang-en>Navigation</span></h4>
         <a href="#chi-siamo"><span lang-it>Chi siamo</span><span lang-en>About</span></a>
         <a href="#servizi"><span lang-it>Servizi</span><span lang-en>Services</span></a>
+        <a href="/turismo"><span lang-it>Settori</span><span lang-en>Sectors</span></a>
         <a href="#pacchetti"><span lang-it>Pacchetti</span><span lang-en>Packages</span></a>
         <a href="#team">Team</a>
         <a href="#processo"><span lang-it>Come lavoriamo</span><span lang-en>How we work</span></a>
@@ -3451,6 +3656,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (isLive) toggle.classList.add('on');
 });
 </script>
+<script src="/js/sectors-dropdown.js"></script>
 
 </body>
 </html>
