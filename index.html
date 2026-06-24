@@ -1125,7 +1125,9 @@
       nav .nav-links > a.mobile-only-link { display: flex !important; }
       .nav-dropdown { width: 100%; flex-direction: column; }
       .nav-dd-trigger { width: 100%; justify-content: space-between; font-size: 1.05rem; padding: 18px 24px; border-bottom: 1px solid var(--border); border-radius: 0; }
-      .nav-dd-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0; min-width: 0; background: var(--bg-alt); }
+      /* Settori = accordion su mobile: collassato di default, espande su .open */
+      .nav-dd-menu { position: static; max-height: 0; overflow: hidden; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0; min-width: 0; background: var(--bg-alt); transition: max-height 0.32s cubic-bezier(0.4,0,0.2,1); }
+      .nav-dropdown.open .nav-dd-menu { max-height: 60vh; overflow-y: auto; }
       .nav-dd-menu .dd-item { padding: 14px 38px; border-bottom: 1px solid var(--border); border-radius: 0; }
       .mobile-extras {
         display: flex !important;
@@ -3036,11 +3038,18 @@
   function toggleMenu() {
     var links = document.getElementById('nav-links');
     var isOpen = links.classList.toggle('open');
+    if (isOpen) {
+      // allinea il top del dropdown al bottom reale dell'header (terminal strip + header = altezza variabile)
+      var hdr = document.getElementById('site-header');
+      links.style.top = (hdr ? Math.round(hdr.getBoundingClientRect().bottom) : 116) + 'px';
+      menuScrollStart = window.scrollY;
+    }
     setMenuIcon(isOpen);
-    if (isOpen) { menuScrollStart = window.scrollY; }
   }
   function closeMenu() {
     document.getElementById('nav-links').classList.remove('open');
+    var sdd = document.getElementById('settori-dd');
+    if (sdd) sdd.classList.remove('open');  // reset accordion Settori
     setMenuIcon(false);
   }
   // Auto-close when scrolled past threshold (menu height / 2, min 80px)
