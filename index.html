@@ -441,6 +441,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
+    /* Piani: 2 schede affiancate e centrate su desktop, impilate su mobile */
+    .plans-grid { grid-template-columns: repeat(2, 1fr); max-width: 820px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 768px) { .plans-grid { grid-template-columns: 1fr; } }
     .service-card {
       padding: 36px 28px;
       background: var(--white);
@@ -1088,15 +1091,15 @@
       nav .nav-links {
         display: flex !important;
         flex-direction: column;
-        position: fixed;
-        top: 116px;
+        position: absolute;
+        top: 100%;   /* aggancia il menu al bottom dell'header (suo offsetParent: l'header ha backdrop-filter -> containing block) -> sempre flush, mai gap su nessun device */
         left: 0;
         right: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
         background: var(--bg);
-        z-index: 150;
+        z-index: 90;
         border-top: 0px solid var(--border);
       }
 
@@ -2101,33 +2104,6 @@
       </div>
     </div>
 
-    <!-- Proof: caso reale TIA -->
-    <div class="proof-case fade-up">
-      <p class="proof-label"><span lang-it>Caso reale</span><span lang-en>Real case</span></p>
-      <h3 class="proof-title"><span lang-it>TripInArt — già operativo con Fenice</span><span lang-en>TripInArt — already live with Fenice</span></h3>
-      <div class="proof-stats">
-        <div class="proof-stat">
-          <span class="proof-num">h24</span>
-          <span class="proof-lbl"><span lang-it>Assistenza Aria</span><span lang-en>Aria support</span></span>
-        </div>
-        <div class="proof-stat">
-          <span class="proof-num">5</span>
-          <span class="proof-lbl"><span lang-it>Lingue</span><span lang-en>Languages</span></span>
-        </div>
-        <div class="proof-stat">
-          <span class="proof-num">8</span>
-          <span class="proof-lbl"><span lang-it>Agenti attivi</span><span lang-en>Active agents</span></span>
-        </div>
-        <div class="proof-stat">
-          <span class="proof-num">4<span style="font-size:1rem"> <span lang-it>sett.</span><span lang-en>wks</span></span></span>
-          <span class="proof-lbl"><span lang-it>Piano content</span><span lang-en>Content plan</span></span>
-        </div>
-      </div>
-      <p class="proof-note">
-        <span lang-it>Aria risponde ai clienti di TripInArt h24 su tripinartitaly.com, in 5 lingue. Otto agenti Fenice gestiscono contenuti, email e lead in autonomia — sotto supervisione strategica.</span>
-        <span lang-en>Aria responds to TripInArt's clients 24/7 on tripinartitaly.com, in 5 languages. Eight Fenice agents manage content, email and leads autonomously — under strategic oversight.</span>
-      </p>
-    </div>
   </div>
 </section>
 
@@ -2139,7 +2115,7 @@
       <h2><span lang-it>Scegli il piano giusto per te</span><span lang-en>Choose the right plan for you</span></h2>
       <p><span lang-it>Due piani pensati per PMI italiane. I prezzi non sono pubblicati: ogni preventivo è costruito sul tuo caso specifico, senza sorprese.</span><span lang-en>Two plans designed for Italian SMEs. Prices are not published: every quote is built for your specific case, with no surprises.</span></p>
     </div>
-    <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="services-grid plans-grid">
 
       <!-- Essenziale -->
       <div class="service-card fade-up">
@@ -3038,12 +3014,7 @@
   function toggleMenu() {
     var links = document.getElementById('nav-links');
     var isOpen = links.classList.toggle('open');
-    if (isOpen) {
-      // allinea il top del dropdown al bottom reale dell'header (terminal strip + header = altezza variabile)
-      var hdr = document.getElementById('site-header');
-      links.style.top = (hdr ? Math.round(hdr.getBoundingClientRect().bottom) : 116) + 'px';
-      menuScrollStart = window.scrollY;
-    }
+    if (isOpen) { menuScrollStart = window.scrollY; }  // menu agganciato all'header via CSS (top:100%), nessun calcolo JS
     setMenuIcon(isOpen);
   }
   function closeMenu() {
