@@ -279,7 +279,7 @@
     a.nav-auth:hover { background: var(--navy) !important; color: var(--white) !important; }
     a.nav-auth.esci { border-color: var(--red, #dc2626); color: var(--red, #dc2626) !important; }
     a.nav-auth.esci:hover { background: var(--red, #dc2626) !important; color: #fff !important; }
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) { /* Sess.796: segue il menu a scomparsa, che parte sotto i 1024 px */
       nav .nav-links > a.nav-auth {
         border: none !important; border-radius: 0 !important;
         padding: 18px 24px !important; margin-left: 0;
@@ -1034,14 +1034,11 @@
       .process-step.step-active .step-num { transform: none; box-shadow: none; color: var(--white); font-weight: 700; }
     }
 
-    @media (max-width: 768px) {
-      html { font-size: 16px; }
-      section { padding: 72px 0; }
-      #hero { padding: 150px 0 60px; }
-
-      /* Mobile: static background, no canvas animation */
-      #hero-canvas { display: none; }
-
+    /* Header (Sess.796): le voci non vanno mai a capo; sotto i 1024 px la barra non ci sta e si usa il menu a scomparsa. */
+    nav a, .nav-dd-trigger, .header-cta { white-space: nowrap; }
+    @media (min-width: 1024px) { .nav-links > a, .nav-dd-trigger { padding: 8px 10px; } }
+    @media (min-width: 1024px) and (max-width: 1180px) { nav > a.header-cta { display: none; } }
+    @media (max-width: 1023px) {
       /* Header: hide desktop nav elements */
       nav > .lang-toggle { display: none; }
       .header-cta { display: none !important; }
@@ -1111,6 +1108,16 @@
         padding: 15px 22px;
         font-size: 1rem;
       }
+    }
+
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      section { padding: 72px 0; }
+      #hero { padding: 150px 0 60px; }
+
+      /* Mobile: static background, no canvas animation */
+      #hero-canvas { display: none; }
+
 
       .pillars-grid { grid-template-columns: 1fr; gap: 20px; }
       .services-grid { grid-template-columns: 1fr; gap: 20px; }
